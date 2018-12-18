@@ -11,11 +11,14 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace USBSpeedTest
 {
     public partial class MainForm : Form
     {
+
+        GraphPane MyPane;
         public ADForm myADForm;
         SaveFile FileThread = null;
         public byte[] TempStoreBuf = new byte[8192];
@@ -79,10 +82,75 @@ namespace USBSpeedTest
 
         }
 
+        private void initRBoard()
+        {
+            MyLog.Info("初始化数字电阻通道......");
 
+            //初始化板卡，每个通道值设置为0x00001C03向下发送
+            byte[] RSend = new byte[8 + 32];
+            RSend[0] = 0x1D;
+            RSend[1] = 0x0D;
+            RSend[2] = 0x00;
+            RSend[3] = 0x20;//0x0020 = 32
+
+            // for (int i = 0; i < 32; i++) RSend[164 + i] = 0x0;
+
+            for (int i = 1; i < 8; i++)
+            {
+                RSend[4 * i] = 0x0;
+                RSend[4 * i + 1] = 0x0;
+                //RSend[4 * i + 2] = 0x1c;
+                //RSend[4 * i + 3] = 0x03;
+                RSend[4 * i + 2] = 0x03;
+                RSend[4 * i + 3] = 0x1c;
+            }
+
+            RSend[36] = 0xC0;
+            RSend[37] = 0xDE;
+            RSend[38] = 0xC0;
+            RSend[39] = 0xDE;
+
+            Register.Byte84H = (byte)(Register.Byte84H | 0x40);
+            USB.SendCMD(Data.OnlyId, 0x84, Register.Byte84H);
+            Register.Byte84H = (byte)(Register.Byte84H & 0x3f);
+            USB.SendCMD(Data.OnlyId, 0x84, 0x00);
+
+            USB.SendData(Data.OnlyId, RSend);
+
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             SetDevice(false);
+
+            //       zedGraphControl1.GraphPane.Title = "AD显示表";
+            MyPane = zedGraphControl1.GraphPane;
+            MyPane.Title = "AD显示表";
+            MyPane.XAxis.Title = "时间";
+            MyPane.YAxis.Title = "值";
+            double[] x = new double[100];
+            double[] y = new double[100];
+            for (int i = 0; i < 1; i++)
+            {
+                x[i] = 0;
+                y[i] = 0;
+            }
+
+            MyPane.AddCurve("AD1", x, y, Color.Red, SymbolType.Square);
+            MyPane.AddCurve("AD2", x, y, Color.Gold, SymbolType.Square);
+            MyPane.AddCurve("AD3", x, y, Color.Green, SymbolType.Square);
+            MyPane.AddCurve("AD4", x, y, Color.Blue, SymbolType.Square);
+            MyPane.AddCurve("AD5", x, y, Color.Red, SymbolType.Square);
+            MyPane.AddCurve("AD6", x, y, Color.Gold, SymbolType.Square);
+            MyPane.AddCurve("AD7", x, y, Color.Green, SymbolType.Square);
+            MyPane.AddCurve("AD8", x, y, Color.Blue, SymbolType.Square);
+            MyPane.AddCurve("AD9", x, y, Color.Red, SymbolType.Square);
+            MyPane.AddCurve("AD10", x, y, Color.Gold, SymbolType.Square);
+            MyPane.AddCurve("AD11", x, y, Color.Green, SymbolType.Square);
+            MyPane.AddCurve("AD12", x, y, Color.Blue, SymbolType.Square);
+            MyPane.AddCurve("AD13", x, y, Color.Red, SymbolType.Square);
+            MyPane.AddCurve("AD14", x, y, Color.Gold, SymbolType.Square);
+            MyPane.AddCurve("AD15", x, y, Color.Green, SymbolType.Square);
+            MyPane.AddCurve("AD16", x, y, Color.Blue, SymbolType.Square);
 
             Data.dt_AD01.Columns.Add("序号", typeof(Int32));
             Data.dt_AD01.Columns.Add("名称", typeof(String));
@@ -148,6 +216,7 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
 
                     Data.OnlyId = key;
 
+                    initRBoard();
                 }
             }
 
@@ -902,7 +971,7 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
         }
 
         bool ExecDec = false;
-
+        int count = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (Data.AdFrmIsAlive)
@@ -911,8 +980,17 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                 {
                     Data.dt_AD01.Rows[i]["测量值"] = Data.daRe_AD01[i];
                     Data.dt_AD02.Rows[i]["测量值"] = Data.daRe_AD02[i];
+
+                    MyPane.CurveList[i].AddPoint(count, Data.daRe_AD01[i]);
+                    MyPane.CurveList[i+8].AddPoint(count, Data.daRe_AD02[i]);
                 }
+                count++;
             }
+
+            zedGraphControl1.AxisChange();
+            zedGraphControl1.Invalidate();
+
+
         }
 
         private void 查看AD数据ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -960,15 +1038,20 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
             {
                 double value = (double)dtR1.Rows[i]["电阻"];
 
+                if (value == 20) value = 19.99;
+
                 int RValue = (int)(1024 * value);
                 int SendR = 0;
-                SendR = 0x400 + ((RValue / 100) & 0x3ff);// + Data.value_R2[row + 24 * V];
+                SendR = 0x400 + ((RValue / 20) & 0x3ff);// + Data.value_R2[row + 24 * V];
 
 
                 RSend[4+0 + 4 * i] = 0x00;
                 RSend[4+1 + 4 * i] = 0x00;
-                RSend[4+2 + 4 * i] = (byte)((SendR & 0xff00) >> 8);
-                RSend[4+3 + 4 * i] = (byte)(SendR & 0xff);
+                //RSend[4+2 + 4 * i] = (byte)((SendR & 0xff00) >> 8);
+                //RSend[4+3 + 4 * i] = (byte)(SendR & 0xff);
+
+                RSend[4 + 2 + 4 * i] = (byte)(SendR & 0xff);
+                RSend[4 + 3 + 4 * i] =  (byte)((SendR & 0xff00) >> 8);
 
             }
 
@@ -1040,6 +1123,23 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
         }
 
         private void button3_Click_2(object sender, EventArgs e)
+        {
+            this.textBox_Serial01.Clear();
+            this.textBox_Serial02.Clear();
+            this.textBox_Serial03.Clear();
+            this.textBox_Serial04.Clear();
+            this.textBox_Serial05.Clear();
+            this.textBox_Serial06.Clear();
+            this.textBox_Serial07.Clear();
+            this.textBox_Serial08.Clear();
+            this.textBox_Serial09.Clear();
+            this.textBox_Serial10.Clear();
+            this.textBox_Serial11.Clear();
+            this.textBox_Serial12.Clear();
+            this.textBox_Serial13.Clear();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
         {
             this.textBox_Serial01.Clear();
             this.textBox_Serial02.Clear();

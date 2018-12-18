@@ -105,15 +105,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.查看AD数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btn_Output = new System.Windows.Forms.Button();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.label85 = new System.Windows.Forms.Label();
-            this.dataGridView_R1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -123,6 +114,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Output = new System.Windows.Forms.Button();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.label85 = new System.Windows.Forms.Label();
+            this.dataGridView_R1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -134,66 +133,67 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox_Serial01 = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial02 = new System.Windows.Forms.TextBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial03 = new System.Windows.Forms.TextBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial04 = new System.Windows.Forms.TextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial05 = new System.Windows.Forms.TextBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial06 = new System.Windows.Forms.TextBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial07 = new System.Windows.Forms.TextBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial08 = new System.Windows.Forms.TextBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial09 = new System.Windows.Forms.TextBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial10 = new System.Windows.Forms.TextBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial11 = new System.Windows.Forms.TextBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.textBox_Serial12 = new System.Windows.Forms.TextBox();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.textBox_Serial13 = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial02 = new System.Windows.Forms.TextBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial12 = new System.Windows.Forms.TextBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial06 = new System.Windows.Forms.TextBox();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial11 = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial03 = new System.Windows.Forms.TextBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial10 = new System.Windows.Forms.TextBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial05 = new System.Windows.Forms.TextBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial09 = new System.Windows.Forms.TextBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial04 = new System.Windows.Forms.TextBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial08 = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.textBox_Serial07 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button3 = new System.Windows.Forms.Button();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_R1)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox16.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox17.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -201,7 +201,7 @@
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(164, 617);
+            this.richTextBox1.Size = new System.Drawing.Size(149, 763);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -209,7 +209,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(7, 78);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(66, 21);
+            this.textBox5.Size = new System.Drawing.Size(39, 21);
             this.textBox5.TabIndex = 6;
             // 
             // label5
@@ -224,7 +224,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(82, 63);
+            this.label6.Location = new System.Drawing.Point(52, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 9;
@@ -232,16 +232,16 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(84, 78);
+            this.textBox6.Location = new System.Drawing.Point(54, 78);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(66, 21);
+            this.textBox6.Size = new System.Drawing.Size(41, 21);
             this.textBox6.TabIndex = 8;
             // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(6, 20);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(144, 39);
+            this.button5.Size = new System.Drawing.Size(89, 39);
             this.button5.TabIndex = 5;
             this.button5.Text = "发送指令";
             this.button5.UseVisualStyleBackColor = true;
@@ -333,15 +333,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(692, 220);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(740, 220);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // btn_85_3
             // 
             this.btn_85_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_85_3.Location = new System.Drawing.Point(348, 165);
+            this.btn_85_3.Location = new System.Drawing.Point(372, 165);
             this.btn_85_3.Name = "btn_85_3";
-            this.btn_85_3.Size = new System.Drawing.Size(78, 21);
+            this.btn_85_3.Size = new System.Drawing.Size(84, 21);
             this.btn_85_3.TabIndex = 31;
             this.btn_85_3.Text = "0:串口4";
             this.btn_85_3.UseVisualStyleBackColor = true;
@@ -350,9 +350,9 @@
             // btn_85_2
             // 
             this.btn_85_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_85_2.Location = new System.Drawing.Point(432, 165);
+            this.btn_85_2.Location = new System.Drawing.Point(462, 165);
             this.btn_85_2.Name = "btn_85_2";
-            this.btn_85_2.Size = new System.Drawing.Size(80, 21);
+            this.btn_85_2.Size = new System.Drawing.Size(86, 21);
             this.btn_85_2.TabIndex = 32;
             this.btn_85_2.Text = "0:串口3";
             this.btn_85_2.UseVisualStyleBackColor = true;
@@ -361,9 +361,9 @@
             // btn_85_0
             // 
             this.btn_85_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_85_0.Location = new System.Drawing.Point(604, 165);
+            this.btn_85_0.Location = new System.Drawing.Point(646, 165);
             this.btn_85_0.Name = "btn_85_0";
-            this.btn_85_0.Size = new System.Drawing.Size(85, 21);
+            this.btn_85_0.Size = new System.Drawing.Size(91, 21);
             this.btn_85_0.TabIndex = 33;
             this.btn_85_0.Text = "0:串口1";
             this.btn_85_0.UseVisualStyleBackColor = true;
@@ -372,9 +372,9 @@
             // btn_82_0
             // 
             this.btn_82_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_82_0.Location = new System.Drawing.Point(604, 84);
+            this.btn_82_0.Location = new System.Drawing.Point(646, 84);
             this.btn_82_0.Name = "btn_82_0";
-            this.btn_82_0.Size = new System.Drawing.Size(85, 21);
+            this.btn_82_0.Size = new System.Drawing.Size(91, 21);
             this.btn_82_0.TabIndex = 23;
             this.btn_82_0.Text = "0:JDQ开关8";
             this.btn_82_0.UseVisualStyleBackColor = true;
@@ -383,9 +383,9 @@
             // btn_83_6
             // 
             this.btn_83_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_83_6.Location = new System.Drawing.Point(89, 111);
+            this.btn_83_6.Location = new System.Drawing.Point(95, 111);
             this.btn_83_6.Name = "btn_83_6";
-            this.btn_83_6.Size = new System.Drawing.Size(80, 21);
+            this.btn_83_6.Size = new System.Drawing.Size(86, 21);
             this.btn_83_6.TabIndex = 24;
             this.btn_83_6.Text = "0:串口7";
             this.btn_83_6.UseVisualStyleBackColor = true;
@@ -394,9 +394,9 @@
             // btn_83_5
             // 
             this.btn_83_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_83_5.Location = new System.Drawing.Point(175, 111);
+            this.btn_83_5.Location = new System.Drawing.Point(187, 111);
             this.btn_83_5.Name = "btn_83_5";
-            this.btn_83_5.Size = new System.Drawing.Size(80, 21);
+            this.btn_83_5.Size = new System.Drawing.Size(86, 21);
             this.btn_83_5.TabIndex = 25;
             this.btn_83_5.Text = "0:串口6";
             this.btn_83_5.UseVisualStyleBackColor = true;
@@ -405,9 +405,9 @@
             // btn_83_4
             // 
             this.btn_83_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_83_4.Location = new System.Drawing.Point(261, 111);
+            this.btn_83_4.Location = new System.Drawing.Point(279, 111);
             this.btn_83_4.Name = "btn_83_4";
-            this.btn_83_4.Size = new System.Drawing.Size(81, 21);
+            this.btn_83_4.Size = new System.Drawing.Size(87, 21);
             this.btn_83_4.TabIndex = 26;
             this.btn_83_4.Text = "0:串口5";
             this.btn_83_4.UseVisualStyleBackColor = true;
@@ -416,9 +416,9 @@
             // btn_83_3
             // 
             this.btn_83_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_83_3.Location = new System.Drawing.Point(348, 111);
+            this.btn_83_3.Location = new System.Drawing.Point(372, 111);
             this.btn_83_3.Name = "btn_83_3";
-            this.btn_83_3.Size = new System.Drawing.Size(78, 21);
+            this.btn_83_3.Size = new System.Drawing.Size(84, 21);
             this.btn_83_3.TabIndex = 27;
             this.btn_83_3.Text = "0:串口4";
             this.btn_83_3.UseVisualStyleBackColor = true;
@@ -427,9 +427,9 @@
             // btn_83_2
             // 
             this.btn_83_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_83_2.Location = new System.Drawing.Point(432, 111);
+            this.btn_83_2.Location = new System.Drawing.Point(462, 111);
             this.btn_83_2.Name = "btn_83_2";
-            this.btn_83_2.Size = new System.Drawing.Size(80, 21);
+            this.btn_83_2.Size = new System.Drawing.Size(86, 21);
             this.btn_83_2.TabIndex = 28;
             this.btn_83_2.Text = "0:串口3";
             this.btn_83_2.UseVisualStyleBackColor = true;
@@ -438,9 +438,9 @@
             // btn_83_1
             // 
             this.btn_83_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_83_1.Location = new System.Drawing.Point(518, 111);
+            this.btn_83_1.Location = new System.Drawing.Point(554, 111);
             this.btn_83_1.Name = "btn_83_1";
-            this.btn_83_1.Size = new System.Drawing.Size(80, 21);
+            this.btn_83_1.Size = new System.Drawing.Size(86, 21);
             this.btn_83_1.TabIndex = 29;
             this.btn_83_1.Text = "0:串口2";
             this.btn_83_1.UseVisualStyleBackColor = true;
@@ -449,9 +449,9 @@
             // btn_82_6
             // 
             this.btn_82_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_82_6.Location = new System.Drawing.Point(89, 84);
+            this.btn_82_6.Location = new System.Drawing.Point(95, 84);
             this.btn_82_6.Name = "btn_82_6";
-            this.btn_82_6.Size = new System.Drawing.Size(80, 21);
+            this.btn_82_6.Size = new System.Drawing.Size(86, 21);
             this.btn_82_6.TabIndex = 16;
             this.btn_82_6.Text = "0:保留";
             this.btn_82_6.UseVisualStyleBackColor = true;
@@ -460,9 +460,9 @@
             // btn_82_1
             // 
             this.btn_82_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_82_1.Location = new System.Drawing.Point(518, 84);
+            this.btn_82_1.Location = new System.Drawing.Point(554, 84);
             this.btn_82_1.Name = "btn_82_1";
-            this.btn_82_1.Size = new System.Drawing.Size(80, 21);
+            this.btn_82_1.Size = new System.Drawing.Size(86, 21);
             this.btn_82_1.TabIndex = 17;
             this.btn_82_1.Text = "0:JDQ开关9";
             this.btn_82_1.UseVisualStyleBackColor = true;
@@ -471,9 +471,9 @@
             // btn_82_2
             // 
             this.btn_82_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_82_2.Location = new System.Drawing.Point(432, 84);
+            this.btn_82_2.Location = new System.Drawing.Point(462, 84);
             this.btn_82_2.Name = "btn_82_2";
-            this.btn_82_2.Size = new System.Drawing.Size(80, 21);
+            this.btn_82_2.Size = new System.Drawing.Size(86, 21);
             this.btn_82_2.TabIndex = 18;
             this.btn_82_2.Text = "0:保留";
             this.btn_82_2.UseVisualStyleBackColor = true;
@@ -482,9 +482,9 @@
             // btn_82_3
             // 
             this.btn_82_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_82_3.Location = new System.Drawing.Point(348, 84);
+            this.btn_82_3.Location = new System.Drawing.Point(372, 84);
             this.btn_82_3.Name = "btn_82_3";
-            this.btn_82_3.Size = new System.Drawing.Size(78, 21);
+            this.btn_82_3.Size = new System.Drawing.Size(84, 21);
             this.btn_82_3.TabIndex = 19;
             this.btn_82_3.Text = "0:保留";
             this.btn_82_3.UseVisualStyleBackColor = true;
@@ -493,9 +493,9 @@
             // btn_82_4
             // 
             this.btn_82_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_82_4.Location = new System.Drawing.Point(261, 84);
+            this.btn_82_4.Location = new System.Drawing.Point(279, 84);
             this.btn_82_4.Name = "btn_82_4";
-            this.btn_82_4.Size = new System.Drawing.Size(81, 21);
+            this.btn_82_4.Size = new System.Drawing.Size(87, 21);
             this.btn_82_4.TabIndex = 20;
             this.btn_82_4.Text = "0:保留";
             this.btn_82_4.UseVisualStyleBackColor = true;
@@ -504,9 +504,9 @@
             // btn_82_5
             // 
             this.btn_82_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_82_5.Location = new System.Drawing.Point(175, 84);
+            this.btn_82_5.Location = new System.Drawing.Point(187, 84);
             this.btn_82_5.Name = "btn_82_5";
-            this.btn_82_5.Size = new System.Drawing.Size(80, 21);
+            this.btn_82_5.Size = new System.Drawing.Size(86, 21);
             this.btn_82_5.TabIndex = 21;
             this.btn_82_5.Text = "0:保留";
             this.btn_82_5.UseVisualStyleBackColor = true;
@@ -518,7 +518,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(3, 27);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 27);
+            this.label9.Size = new System.Drawing.Size(86, 27);
             this.label9.TabIndex = 0;
             this.label9.Text = "0x80(系统)";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -530,7 +530,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Location = new System.Drawing.Point(3, 54);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 27);
+            this.label10.Size = new System.Drawing.Size(86, 27);
             this.label10.TabIndex = 0;
             this.label10.Text = "0x81(JDQ)";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -539,9 +539,9 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(89, 0);
+            this.label11.Location = new System.Drawing.Point(95, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 27);
+            this.label11.Size = new System.Drawing.Size(86, 27);
             this.label11.TabIndex = 0;
             this.label11.Text = "bit6";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,9 +550,9 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(175, 0);
+            this.label12.Location = new System.Drawing.Point(187, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 27);
+            this.label12.Size = new System.Drawing.Size(86, 27);
             this.label12.TabIndex = 0;
             this.label12.Text = "bit5";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -561,9 +561,9 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(261, 0);
+            this.label13.Location = new System.Drawing.Point(279, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 27);
+            this.label13.Size = new System.Drawing.Size(87, 27);
             this.label13.TabIndex = 0;
             this.label13.Text = "bit4";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -572,9 +572,9 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(348, 0);
+            this.label14.Location = new System.Drawing.Point(372, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 27);
+            this.label14.Size = new System.Drawing.Size(84, 27);
             this.label14.TabIndex = 0;
             this.label14.Text = "bit3";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -583,9 +583,9 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Location = new System.Drawing.Point(432, 0);
+            this.label15.Location = new System.Drawing.Point(462, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 27);
+            this.label15.Size = new System.Drawing.Size(86, 27);
             this.label15.TabIndex = 0;
             this.label15.Text = "bit2";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -594,9 +594,9 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label16.Location = new System.Drawing.Point(518, 0);
+            this.label16.Location = new System.Drawing.Point(554, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(80, 27);
+            this.label16.Size = new System.Drawing.Size(86, 27);
             this.label16.TabIndex = 0;
             this.label16.Text = "bit1";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -608,7 +608,7 @@
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Location = new System.Drawing.Point(3, 135);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(80, 27);
+            this.label24.Size = new System.Drawing.Size(86, 27);
             this.label24.TabIndex = 0;
             this.label24.Text = "0x84(清零)";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -617,9 +617,9 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Location = new System.Drawing.Point(604, 0);
+            this.label17.Location = new System.Drawing.Point(646, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 27);
+            this.label17.Size = new System.Drawing.Size(91, 27);
             this.label17.TabIndex = 0;
             this.label17.Text = "bit0";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -627,9 +627,9 @@
             // btn_81_6
             // 
             this.btn_81_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_81_6.Location = new System.Drawing.Point(89, 57);
+            this.btn_81_6.Location = new System.Drawing.Point(95, 57);
             this.btn_81_6.Name = "btn_81_6";
-            this.btn_81_6.Size = new System.Drawing.Size(80, 21);
+            this.btn_81_6.Size = new System.Drawing.Size(86, 21);
             this.btn_81_6.TabIndex = 1;
             this.btn_81_6.Text = "0:JDQ开关7";
             this.btn_81_6.UseVisualStyleBackColor = true;
@@ -638,9 +638,9 @@
             // btn_81_1
             // 
             this.btn_81_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_81_1.Location = new System.Drawing.Point(518, 57);
+            this.btn_81_1.Location = new System.Drawing.Point(554, 57);
             this.btn_81_1.Name = "btn_81_1";
-            this.btn_81_1.Size = new System.Drawing.Size(80, 21);
+            this.btn_81_1.Size = new System.Drawing.Size(86, 21);
             this.btn_81_1.TabIndex = 1;
             this.btn_81_1.Text = "0:JDQ开关2";
             this.btn_81_1.UseVisualStyleBackColor = true;
@@ -649,9 +649,9 @@
             // btn_80_6
             // 
             this.btn_80_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_80_6.Location = new System.Drawing.Point(89, 30);
+            this.btn_80_6.Location = new System.Drawing.Point(95, 30);
             this.btn_80_6.Name = "btn_80_6";
-            this.btn_80_6.Size = new System.Drawing.Size(80, 21);
+            this.btn_80_6.Size = new System.Drawing.Size(86, 21);
             this.btn_80_6.TabIndex = 1;
             this.btn_80_6.Text = "0:保留";
             this.btn_80_6.UseVisualStyleBackColor = true;
@@ -660,9 +660,9 @@
             // btn_85_1
             // 
             this.btn_85_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_85_1.Location = new System.Drawing.Point(518, 165);
+            this.btn_85_1.Location = new System.Drawing.Point(554, 165);
             this.btn_85_1.Name = "btn_85_1";
-            this.btn_85_1.Size = new System.Drawing.Size(80, 21);
+            this.btn_85_1.Size = new System.Drawing.Size(86, 21);
             this.btn_85_1.TabIndex = 30;
             this.btn_85_1.Text = "0:串口2";
             this.btn_85_1.UseVisualStyleBackColor = true;
@@ -671,9 +671,9 @@
             // btn_80_5
             // 
             this.btn_80_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_80_5.Location = new System.Drawing.Point(175, 30);
+            this.btn_80_5.Location = new System.Drawing.Point(187, 30);
             this.btn_80_5.Name = "btn_80_5";
-            this.btn_80_5.Size = new System.Drawing.Size(80, 21);
+            this.btn_80_5.Size = new System.Drawing.Size(86, 21);
             this.btn_80_5.TabIndex = 1;
             this.btn_80_5.Text = "0:保留";
             this.btn_80_5.UseVisualStyleBackColor = true;
@@ -682,9 +682,9 @@
             // btn_81_2
             // 
             this.btn_81_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_81_2.Location = new System.Drawing.Point(432, 57);
+            this.btn_81_2.Location = new System.Drawing.Point(462, 57);
             this.btn_81_2.Name = "btn_81_2";
-            this.btn_81_2.Size = new System.Drawing.Size(80, 21);
+            this.btn_81_2.Size = new System.Drawing.Size(86, 21);
             this.btn_81_2.TabIndex = 1;
             this.btn_81_2.Text = "0:JDQ开关3";
             this.btn_81_2.UseVisualStyleBackColor = true;
@@ -693,9 +693,9 @@
             // btn_80_4
             // 
             this.btn_80_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_80_4.Location = new System.Drawing.Point(261, 30);
+            this.btn_80_4.Location = new System.Drawing.Point(279, 30);
             this.btn_80_4.Name = "btn_80_4";
-            this.btn_80_4.Size = new System.Drawing.Size(81, 21);
+            this.btn_80_4.Size = new System.Drawing.Size(87, 21);
             this.btn_80_4.TabIndex = 1;
             this.btn_80_4.Text = "0:保留";
             this.btn_80_4.UseVisualStyleBackColor = true;
@@ -704,9 +704,9 @@
             // btn_80_3
             // 
             this.btn_80_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_80_3.Location = new System.Drawing.Point(348, 30);
+            this.btn_80_3.Location = new System.Drawing.Point(372, 30);
             this.btn_80_3.Name = "btn_80_3";
-            this.btn_80_3.Size = new System.Drawing.Size(78, 21);
+            this.btn_80_3.Size = new System.Drawing.Size(84, 21);
             this.btn_80_3.TabIndex = 1;
             this.btn_80_3.Text = "0:保留";
             this.btn_80_3.UseVisualStyleBackColor = true;
@@ -715,9 +715,9 @@
             // btn_81_3
             // 
             this.btn_81_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_81_3.Location = new System.Drawing.Point(348, 57);
+            this.btn_81_3.Location = new System.Drawing.Point(372, 57);
             this.btn_81_3.Name = "btn_81_3";
-            this.btn_81_3.Size = new System.Drawing.Size(78, 21);
+            this.btn_81_3.Size = new System.Drawing.Size(84, 21);
             this.btn_81_3.TabIndex = 1;
             this.btn_81_3.Text = "0:JDQ开关4";
             this.btn_81_3.UseVisualStyleBackColor = true;
@@ -726,9 +726,9 @@
             // btn_80_2
             // 
             this.btn_80_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_80_2.Location = new System.Drawing.Point(432, 30);
+            this.btn_80_2.Location = new System.Drawing.Point(462, 30);
             this.btn_80_2.Name = "btn_80_2";
-            this.btn_80_2.Size = new System.Drawing.Size(80, 21);
+            this.btn_80_2.Size = new System.Drawing.Size(86, 21);
             this.btn_80_2.TabIndex = 1;
             this.btn_80_2.Text = "0:接收";
             this.btn_80_2.UseVisualStyleBackColor = true;
@@ -737,9 +737,9 @@
             // btn_80_1
             // 
             this.btn_80_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_80_1.Location = new System.Drawing.Point(518, 30);
+            this.btn_80_1.Location = new System.Drawing.Point(554, 30);
             this.btn_80_1.Name = "btn_80_1";
-            this.btn_80_1.Size = new System.Drawing.Size(80, 21);
+            this.btn_80_1.Size = new System.Drawing.Size(86, 21);
             this.btn_80_1.TabIndex = 1;
             this.btn_80_1.Text = "0:发送";
             this.btn_80_1.UseVisualStyleBackColor = true;
@@ -748,9 +748,9 @@
             // btn_81_4
             // 
             this.btn_81_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_81_4.Location = new System.Drawing.Point(261, 57);
+            this.btn_81_4.Location = new System.Drawing.Point(279, 57);
             this.btn_81_4.Name = "btn_81_4";
-            this.btn_81_4.Size = new System.Drawing.Size(81, 21);
+            this.btn_81_4.Size = new System.Drawing.Size(87, 21);
             this.btn_81_4.TabIndex = 1;
             this.btn_81_4.Text = "0:JDQ开关5";
             this.btn_81_4.UseVisualStyleBackColor = true;
@@ -759,9 +759,9 @@
             // btn_80_0
             // 
             this.btn_80_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_80_0.Location = new System.Drawing.Point(604, 30);
+            this.btn_80_0.Location = new System.Drawing.Point(646, 30);
             this.btn_80_0.Name = "btn_80_0";
-            this.btn_80_0.Size = new System.Drawing.Size(85, 21);
+            this.btn_80_0.Size = new System.Drawing.Size(91, 21);
             this.btn_80_0.TabIndex = 1;
             this.btn_80_0.Text = "0:复位";
             this.btn_80_0.UseVisualStyleBackColor = true;
@@ -770,9 +770,9 @@
             // btn_81_5
             // 
             this.btn_81_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_81_5.Location = new System.Drawing.Point(175, 57);
+            this.btn_81_5.Location = new System.Drawing.Point(187, 57);
             this.btn_81_5.Name = "btn_81_5";
-            this.btn_81_5.Size = new System.Drawing.Size(80, 21);
+            this.btn_81_5.Size = new System.Drawing.Size(86, 21);
             this.btn_81_5.TabIndex = 1;
             this.btn_81_5.Text = "0:JDQ开关6";
             this.btn_81_5.UseVisualStyleBackColor = true;
@@ -781,9 +781,9 @@
             // btn_81_0
             // 
             this.btn_81_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_81_0.Location = new System.Drawing.Point(604, 57);
+            this.btn_81_0.Location = new System.Drawing.Point(646, 57);
             this.btn_81_0.Name = "btn_81_0";
-            this.btn_81_0.Size = new System.Drawing.Size(85, 21);
+            this.btn_81_0.Size = new System.Drawing.Size(91, 21);
             this.btn_81_0.TabIndex = 1;
             this.btn_81_0.Text = "0:JDQ开关1";
             this.btn_81_0.UseVisualStyleBackColor = true;
@@ -796,7 +796,7 @@
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Location = new System.Drawing.Point(3, 81);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(80, 27);
+            this.label22.Size = new System.Drawing.Size(86, 27);
             this.label22.TabIndex = 0;
             this.label22.Text = "0x82(JDQ)";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,7 +808,7 @@
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Location = new System.Drawing.Point(3, 108);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(80, 27);
+            this.label23.Size = new System.Drawing.Size(86, 27);
             this.label23.TabIndex = 0;
             this.label23.Text = "0x83(清零)";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -816,9 +816,9 @@
             // btn_83_0
             // 
             this.btn_83_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_83_0.Location = new System.Drawing.Point(604, 111);
+            this.btn_83_0.Location = new System.Drawing.Point(646, 111);
             this.btn_83_0.Name = "btn_83_0";
-            this.btn_83_0.Size = new System.Drawing.Size(85, 21);
+            this.btn_83_0.Size = new System.Drawing.Size(91, 21);
             this.btn_83_0.TabIndex = 22;
             this.btn_83_0.Text = "0:串口1";
             this.btn_83_0.UseVisualStyleBackColor = true;
@@ -827,9 +827,9 @@
             // btn_84_1
             // 
             this.btn_84_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_84_1.Location = new System.Drawing.Point(518, 138);
+            this.btn_84_1.Location = new System.Drawing.Point(554, 138);
             this.btn_84_1.Name = "btn_84_1";
-            this.btn_84_1.Size = new System.Drawing.Size(80, 21);
+            this.btn_84_1.Size = new System.Drawing.Size(86, 21);
             this.btn_84_1.TabIndex = 7;
             this.btn_84_1.Text = "0:串口9";
             this.btn_84_1.UseVisualStyleBackColor = true;
@@ -838,9 +838,9 @@
             // btn_84_0
             // 
             this.btn_84_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_84_0.Location = new System.Drawing.Point(604, 138);
+            this.btn_84_0.Location = new System.Drawing.Point(646, 138);
             this.btn_84_0.Name = "btn_84_0";
-            this.btn_84_0.Size = new System.Drawing.Size(85, 21);
+            this.btn_84_0.Size = new System.Drawing.Size(91, 21);
             this.btn_84_0.TabIndex = 8;
             this.btn_84_0.Text = "0:串口8";
             this.btn_84_0.UseVisualStyleBackColor = true;
@@ -849,9 +849,9 @@
             // btn_84_2
             // 
             this.btn_84_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_84_2.Location = new System.Drawing.Point(432, 138);
+            this.btn_84_2.Location = new System.Drawing.Point(462, 138);
             this.btn_84_2.Name = "btn_84_2";
-            this.btn_84_2.Size = new System.Drawing.Size(80, 21);
+            this.btn_84_2.Size = new System.Drawing.Size(86, 21);
             this.btn_84_2.TabIndex = 5;
             this.btn_84_2.Text = "0:串口10";
             this.btn_84_2.UseVisualStyleBackColor = true;
@@ -860,9 +860,9 @@
             // btn_84_6
             // 
             this.btn_84_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_84_6.Location = new System.Drawing.Point(89, 138);
+            this.btn_84_6.Location = new System.Drawing.Point(95, 138);
             this.btn_84_6.Name = "btn_84_6";
-            this.btn_84_6.Size = new System.Drawing.Size(80, 21);
+            this.btn_84_6.Size = new System.Drawing.Size(86, 21);
             this.btn_84_6.TabIndex = 4;
             this.btn_84_6.Text = "0:数字电阻";
             this.btn_84_6.UseVisualStyleBackColor = true;
@@ -871,9 +871,9 @@
             // btn_84_4
             // 
             this.btn_84_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_84_4.Location = new System.Drawing.Point(261, 138);
+            this.btn_84_4.Location = new System.Drawing.Point(279, 138);
             this.btn_84_4.Name = "btn_84_4";
-            this.btn_84_4.Size = new System.Drawing.Size(81, 21);
+            this.btn_84_4.Size = new System.Drawing.Size(87, 21);
             this.btn_84_4.TabIndex = 3;
             this.btn_84_4.Text = "0:串口12";
             this.btn_84_4.UseVisualStyleBackColor = true;
@@ -882,9 +882,9 @@
             // btn_84_3
             // 
             this.btn_84_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_84_3.Location = new System.Drawing.Point(348, 138);
+            this.btn_84_3.Location = new System.Drawing.Point(372, 138);
             this.btn_84_3.Name = "btn_84_3";
-            this.btn_84_3.Size = new System.Drawing.Size(78, 21);
+            this.btn_84_3.Size = new System.Drawing.Size(84, 21);
             this.btn_84_3.TabIndex = 5;
             this.btn_84_3.Text = "0:串口11";
             this.btn_84_3.UseVisualStyleBackColor = true;
@@ -893,9 +893,9 @@
             // btn_84_5
             // 
             this.btn_84_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_84_5.Location = new System.Drawing.Point(175, 138);
+            this.btn_84_5.Location = new System.Drawing.Point(187, 138);
             this.btn_84_5.Name = "btn_84_5";
-            this.btn_84_5.Size = new System.Drawing.Size(80, 21);
+            this.btn_84_5.Size = new System.Drawing.Size(86, 21);
             this.btn_84_5.TabIndex = 2;
             this.btn_84_5.Text = "0:串口13";
             this.btn_84_5.UseVisualStyleBackColor = true;
@@ -907,7 +907,7 @@
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Location = new System.Drawing.Point(3, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(80, 27);
+            this.label19.Size = new System.Drawing.Size(86, 27);
             this.label19.TabIndex = 34;
             this.label19.Text = "寄存器设置";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -919,7 +919,7 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Location = new System.Drawing.Point(3, 189);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(80, 31);
+            this.label20.Size = new System.Drawing.Size(86, 31);
             this.label20.TabIndex = 35;
             this.label20.Text = "0x86(模式)";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -927,9 +927,9 @@
             // btn_85_4
             // 
             this.btn_85_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_85_4.Location = new System.Drawing.Point(261, 165);
+            this.btn_85_4.Location = new System.Drawing.Point(279, 165);
             this.btn_85_4.Name = "btn_85_4";
-            this.btn_85_4.Size = new System.Drawing.Size(81, 21);
+            this.btn_85_4.Size = new System.Drawing.Size(87, 21);
             this.btn_85_4.TabIndex = 30;
             this.btn_85_4.Text = "0:串口5";
             this.btn_85_4.UseVisualStyleBackColor = true;
@@ -938,9 +938,9 @@
             // btn_85_5
             // 
             this.btn_85_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_85_5.Location = new System.Drawing.Point(175, 165);
+            this.btn_85_5.Location = new System.Drawing.Point(187, 165);
             this.btn_85_5.Name = "btn_85_5";
-            this.btn_85_5.Size = new System.Drawing.Size(80, 21);
+            this.btn_85_5.Size = new System.Drawing.Size(86, 21);
             this.btn_85_5.TabIndex = 31;
             this.btn_85_5.Text = "0:串口6";
             this.btn_85_5.UseVisualStyleBackColor = true;
@@ -949,9 +949,9 @@
             // btn_85_6
             // 
             this.btn_85_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_85_6.Location = new System.Drawing.Point(89, 165);
+            this.btn_85_6.Location = new System.Drawing.Point(95, 165);
             this.btn_85_6.Name = "btn_85_6";
-            this.btn_85_6.Size = new System.Drawing.Size(80, 21);
+            this.btn_85_6.Size = new System.Drawing.Size(86, 21);
             this.btn_85_6.TabIndex = 32;
             this.btn_85_6.Text = "0:串口7";
             this.btn_85_6.UseVisualStyleBackColor = true;
@@ -964,7 +964,7 @@
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Location = new System.Drawing.Point(3, 162);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(80, 27);
+            this.label18.Size = new System.Drawing.Size(86, 27);
             this.label18.TabIndex = 0;
             this.label18.Text = "0x85(模式)";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -972,9 +972,9 @@
             // btn_86_0
             // 
             this.btn_86_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_86_0.Location = new System.Drawing.Point(604, 192);
+            this.btn_86_0.Location = new System.Drawing.Point(646, 192);
             this.btn_86_0.Name = "btn_86_0";
-            this.btn_86_0.Size = new System.Drawing.Size(85, 25);
+            this.btn_86_0.Size = new System.Drawing.Size(91, 25);
             this.btn_86_0.TabIndex = 33;
             this.btn_86_0.Text = "0:串口8";
             this.btn_86_0.UseVisualStyleBackColor = true;
@@ -983,9 +983,9 @@
             // btn_86_1
             // 
             this.btn_86_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_86_1.Location = new System.Drawing.Point(518, 192);
+            this.btn_86_1.Location = new System.Drawing.Point(554, 192);
             this.btn_86_1.Name = "btn_86_1";
-            this.btn_86_1.Size = new System.Drawing.Size(80, 25);
+            this.btn_86_1.Size = new System.Drawing.Size(86, 25);
             this.btn_86_1.TabIndex = 33;
             this.btn_86_1.Text = "0:串口9";
             this.btn_86_1.UseVisualStyleBackColor = true;
@@ -994,9 +994,9 @@
             // btn_86_2
             // 
             this.btn_86_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_86_2.Location = new System.Drawing.Point(432, 192);
+            this.btn_86_2.Location = new System.Drawing.Point(462, 192);
             this.btn_86_2.Name = "btn_86_2";
-            this.btn_86_2.Size = new System.Drawing.Size(80, 25);
+            this.btn_86_2.Size = new System.Drawing.Size(86, 25);
             this.btn_86_2.TabIndex = 33;
             this.btn_86_2.Text = "0:串口10";
             this.btn_86_2.UseVisualStyleBackColor = true;
@@ -1005,9 +1005,9 @@
             // btn_86_3
             // 
             this.btn_86_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_86_3.Location = new System.Drawing.Point(348, 192);
+            this.btn_86_3.Location = new System.Drawing.Point(372, 192);
             this.btn_86_3.Name = "btn_86_3";
-            this.btn_86_3.Size = new System.Drawing.Size(78, 25);
+            this.btn_86_3.Size = new System.Drawing.Size(84, 25);
             this.btn_86_3.TabIndex = 33;
             this.btn_86_3.Text = "0:串口11";
             this.btn_86_3.UseVisualStyleBackColor = true;
@@ -1016,9 +1016,9 @@
             // btn_86_4
             // 
             this.btn_86_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_86_4.Location = new System.Drawing.Point(261, 192);
+            this.btn_86_4.Location = new System.Drawing.Point(279, 192);
             this.btn_86_4.Name = "btn_86_4";
-            this.btn_86_4.Size = new System.Drawing.Size(81, 25);
+            this.btn_86_4.Size = new System.Drawing.Size(87, 25);
             this.btn_86_4.TabIndex = 33;
             this.btn_86_4.Text = "0:串口12";
             this.btn_86_4.UseVisualStyleBackColor = true;
@@ -1027,9 +1027,9 @@
             // btn_86_5
             // 
             this.btn_86_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_86_5.Location = new System.Drawing.Point(175, 192);
+            this.btn_86_5.Location = new System.Drawing.Point(187, 192);
             this.btn_86_5.Name = "btn_86_5";
-            this.btn_86_5.Size = new System.Drawing.Size(80, 25);
+            this.btn_86_5.Size = new System.Drawing.Size(86, 25);
             this.btn_86_5.TabIndex = 33;
             this.btn_86_5.Text = "0:串口13";
             this.btn_86_5.UseVisualStyleBackColor = true;
@@ -1038,9 +1038,9 @@
             // btn_86_6
             // 
             this.btn_86_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_86_6.Location = new System.Drawing.Point(89, 192);
+            this.btn_86_6.Location = new System.Drawing.Point(95, 192);
             this.btn_86_6.Name = "btn_86_6";
-            this.btn_86_6.Size = new System.Drawing.Size(80, 25);
+            this.btn_86_6.Size = new System.Drawing.Size(86, 25);
             this.btn_86_6.TabIndex = 33;
             this.btn_86_6.Text = "0:保留";
             this.btn_86_6.UseVisualStyleBackColor = true;
@@ -1091,11 +1091,13 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.zedGraphControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btn_Output);
             this.splitContainer1.Panel1.Controls.Add(this.numericUpDown4);
             this.splitContainer1.Panel1.Controls.Add(this.label85);
             this.splitContainer1.Panel1.Controls.Add(this.dataGridView_R1);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox5);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
@@ -1103,13 +1105,117 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1214, 617);
-            this.splitContainer1.SplitterDistance = 698;
+            this.splitContainer1.Size = new System.Drawing.Size(1214, 763);
+            this.splitContainer1.SplitterDistance = 746;
             this.splitContainer1.TabIndex = 89;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button7);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.textBox9);
+            this.groupBox4.Controls.Add(this.label25);
+            this.groupBox4.Controls.Add(this.textBox10);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.textBox8);
+            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Location = new System.Drawing.Point(8, 238);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(399, 105);
+            this.groupBox4.TabIndex = 96;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "注数设置";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(12, 20);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(84, 39);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "发送数据(Byte)";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(102, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "帧头(0x)";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(165, 40);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(233, 21);
+            this.textBox9.TabIndex = 11;
+            this.textBox9.Text = "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(254, 19);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(77, 12);
+            this.label25.TabIndex = 12;
+            this.label25.Text = "帧长（Byte）";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(337, 13);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(61, 21);
+            this.textBox10.TabIndex = 11;
+            this.textBox10.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(102, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "帧尾(0x)";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(165, 15);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(54, 21);
+            this.textBox8.TabIndex = 11;
+            this.textBox8.Text = "1D01";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(12, 67);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox7.Size = new System.Drawing.Size(386, 34);
+            this.textBox7.TabIndex = 10;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(426, 239);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(103, 104);
+            this.groupBox1.TabIndex = 93;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "指令设置";
             // 
             // btn_Output
             // 
-            this.btn_Output.Location = new System.Drawing.Point(349, 549);
+            this.btn_Output.Location = new System.Drawing.Point(432, 412);
             this.btn_Output.Name = "btn_Output";
             this.btn_Output.Size = new System.Drawing.Size(94, 38);
             this.btn_Output.TabIndex = 103;
@@ -1120,7 +1226,7 @@
             // numericUpDown4
             // 
             this.numericUpDown4.DecimalPlaces = 2;
-            this.numericUpDown4.Location = new System.Drawing.Point(249, 566);
+            this.numericUpDown4.Location = new System.Drawing.Point(435, 377);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1141,7 +1247,7 @@
             // 
             this.label85.AutoSize = true;
             this.label85.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label85.Location = new System.Drawing.Point(247, 549);
+            this.label85.Location = new System.Drawing.Point(433, 360);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(71, 12);
             this.label85.TabIndex = 99;
@@ -1155,11 +1261,11 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView_R1.Location = new System.Drawing.Point(14, 382);
+            this.dataGridView_R1.Location = new System.Drawing.Point(535, 240);
             this.dataGridView_R1.Name = "dataGridView_R1";
             this.dataGridView_R1.RowHeadersVisible = false;
             this.dataGridView_R1.RowTemplate.Height = 23;
-            this.dataGridView_R1.Size = new System.Drawing.Size(219, 225);
+            this.dataGridView_R1.Size = new System.Drawing.Size(208, 225);
             this.dataGridView_R1.TabIndex = 98;
             this.dataGridView_R1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_R1_CellEndEdit);
             // 
@@ -1184,122 +1290,6 @@
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.groupBox1);
-            this.groupBox5.Controls.Add(this.groupBox4);
-            this.groupBox5.Location = new System.Drawing.Point(7, 246);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(688, 133);
-            this.groupBox5.TabIndex = 97;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "单元测试仪指令及数据注入";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(7, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(157, 104);
-            this.groupBox1.TabIndex = 93;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "指令设置";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.textBox9);
-            this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.textBox10);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.textBox8);
-            this.groupBox4.Controls.Add(this.textBox7);
-            this.groupBox4.Location = new System.Drawing.Point(172, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(502, 105);
-            this.groupBox4.TabIndex = 96;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "注数设置";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(17, 20);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(130, 39);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "发送数据(Byte)";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(193, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "帧头(0x)";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(256, 40);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(233, 21);
-            this.textBox9.TabIndex = 11;
-            this.textBox9.Text = "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(345, 19);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(77, 12);
-            this.label25.TabIndex = 12;
-            this.label25.Text = "帧长（Byte）";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(428, 13);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(61, 21);
-            this.textBox10.TabIndex = 11;
-            this.textBox10.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(193, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "帧尾(0x)";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(256, 15);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(54, 21);
-            this.textBox8.TabIndex = 11;
-            this.textBox8.Text = "1D01";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(17, 67);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox7.Size = new System.Drawing.Size(472, 34);
-            this.textBox7.TabIndex = 10;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.progressBar1);
@@ -1312,7 +1302,7 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(282, 396);
+            this.groupBox3.Location = new System.Drawing.Point(8, 349);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(410, 116);
             this.groupBox3.TabIndex = 95;
@@ -1405,12 +1395,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "瞬间速度";
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1424,29 +1408,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(512, 617);
-            this.splitContainer2.SplitterDistance = 344;
+            this.splitContainer2.Size = new System.Drawing.Size(464, 763);
+            this.splitContainer2.SplitterDistance = 311;
             this.splitContainer2.TabIndex = 1;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox_Serial01);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 40);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "串口接收1";
-            // 
-            // textBox_Serial01
-            // 
-            this.textBox_Serial01.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial01.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial01.Multiline = true;
-            this.textBox_Serial01.Name = "textBox_Serial01";
-            this.textBox_Serial01.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial01.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -1483,16 +1447,56 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(344, 617);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(311, 763);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox_Serial01);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(305, 51);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "串口接收1";
+            // 
+            // textBox_Serial01
+            // 
+            this.textBox_Serial01.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial01.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial01.Multiline = true;
+            this.textBox_Serial01.Name = "textBox_Serial01";
+            this.textBox_Serial01.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial01.TabIndex = 0;
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.textBox_Serial13);
+            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox17.Location = new System.Drawing.Point(3, 687);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(305, 51);
+            this.groupBox17.TabIndex = 0;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "串口接收13";
+            // 
+            // textBox_Serial13
+            // 
+            this.textBox_Serial13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial13.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial13.Multiline = true;
+            this.textBox_Serial13.Name = "textBox_Serial13";
+            this.textBox_Serial13.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial13.TabIndex = 0;
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.textBox_Serial02);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(3, 49);
+            this.groupBox6.Location = new System.Drawing.Point(3, 60);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(338, 40);
+            this.groupBox6.Size = new System.Drawing.Size(305, 51);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "串口接收2";
@@ -1504,196 +1508,16 @@
             this.textBox_Serial02.Location = new System.Drawing.Point(3, 17);
             this.textBox_Serial02.Multiline = true;
             this.textBox_Serial02.Name = "textBox_Serial02";
-            this.textBox_Serial02.Size = new System.Drawing.Size(332, 20);
+            this.textBox_Serial02.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial02.TabIndex = 0;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.textBox_Serial03);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(3, 95);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(338, 40);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "串口接收3";
-            // 
-            // textBox_Serial03
-            // 
-            this.textBox_Serial03.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial03.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial03.Multiline = true;
-            this.textBox_Serial03.Name = "textBox_Serial03";
-            this.textBox_Serial03.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial03.TabIndex = 0;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.textBox_Serial04);
-            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(3, 141);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(338, 40);
-            this.groupBox8.TabIndex = 0;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "串口接收4";
-            // 
-            // textBox_Serial04
-            // 
-            this.textBox_Serial04.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial04.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial04.Multiline = true;
-            this.textBox_Serial04.Name = "textBox_Serial04";
-            this.textBox_Serial04.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial04.TabIndex = 0;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.textBox_Serial05);
-            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox9.Location = new System.Drawing.Point(3, 187);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(338, 40);
-            this.groupBox9.TabIndex = 0;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "串口接收5";
-            // 
-            // textBox_Serial05
-            // 
-            this.textBox_Serial05.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial05.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial05.Multiline = true;
-            this.textBox_Serial05.Name = "textBox_Serial05";
-            this.textBox_Serial05.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial05.TabIndex = 0;
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.textBox_Serial06);
-            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox10.Location = new System.Drawing.Point(3, 233);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(338, 40);
-            this.groupBox10.TabIndex = 0;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "串口接收6";
-            // 
-            // textBox_Serial06
-            // 
-            this.textBox_Serial06.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial06.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial06.Multiline = true;
-            this.textBox_Serial06.Name = "textBox_Serial06";
-            this.textBox_Serial06.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial06.TabIndex = 0;
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.textBox_Serial07);
-            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox11.Location = new System.Drawing.Point(3, 279);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(338, 40);
-            this.groupBox11.TabIndex = 0;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "串口接收7";
-            // 
-            // textBox_Serial07
-            // 
-            this.textBox_Serial07.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial07.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial07.Multiline = true;
-            this.textBox_Serial07.Name = "textBox_Serial07";
-            this.textBox_Serial07.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial07.TabIndex = 0;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.textBox_Serial08);
-            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox12.Location = new System.Drawing.Point(3, 325);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(338, 40);
-            this.groupBox12.TabIndex = 0;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "串口接收8";
-            // 
-            // textBox_Serial08
-            // 
-            this.textBox_Serial08.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial08.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial08.Multiline = true;
-            this.textBox_Serial08.Name = "textBox_Serial08";
-            this.textBox_Serial08.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial08.TabIndex = 0;
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.textBox_Serial09);
-            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox13.Location = new System.Drawing.Point(3, 371);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(338, 40);
-            this.groupBox13.TabIndex = 0;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "串口接收9";
-            // 
-            // textBox_Serial09
-            // 
-            this.textBox_Serial09.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial09.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial09.Multiline = true;
-            this.textBox_Serial09.Name = "textBox_Serial09";
-            this.textBox_Serial09.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial09.TabIndex = 0;
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.textBox_Serial10);
-            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox14.Location = new System.Drawing.Point(3, 417);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(338, 40);
-            this.groupBox14.TabIndex = 0;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "串口接收10";
-            // 
-            // textBox_Serial10
-            // 
-            this.textBox_Serial10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial10.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial10.Multiline = true;
-            this.textBox_Serial10.Name = "textBox_Serial10";
-            this.textBox_Serial10.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial10.TabIndex = 0;
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.textBox_Serial11);
-            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox15.Location = new System.Drawing.Point(3, 463);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(338, 40);
-            this.groupBox15.TabIndex = 0;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "串口接收11";
-            // 
-            // textBox_Serial11
-            // 
-            this.textBox_Serial11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial11.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial11.Multiline = true;
-            this.textBox_Serial11.Name = "textBox_Serial11";
-            this.textBox_Serial11.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial11.TabIndex = 0;
             // 
             // groupBox16
             // 
             this.groupBox16.Controls.Add(this.textBox_Serial12);
             this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox16.Location = new System.Drawing.Point(3, 509);
+            this.groupBox16.Location = new System.Drawing.Point(3, 630);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(338, 40);
+            this.groupBox16.Size = new System.Drawing.Size(305, 51);
             this.groupBox16.TabIndex = 0;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "串口接收12";
@@ -1704,28 +1528,193 @@
             this.textBox_Serial12.Location = new System.Drawing.Point(3, 17);
             this.textBox_Serial12.Multiline = true;
             this.textBox_Serial12.Name = "textBox_Serial12";
-            this.textBox_Serial12.Size = new System.Drawing.Size(332, 20);
+            this.textBox_Serial12.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial12.TabIndex = 0;
             // 
-            // groupBox17
+            // groupBox10
             // 
-            this.groupBox17.Controls.Add(this.textBox_Serial13);
-            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox17.Location = new System.Drawing.Point(3, 555);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(338, 40);
-            this.groupBox17.TabIndex = 0;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "串口接收13";
+            this.groupBox10.Controls.Add(this.textBox_Serial06);
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox10.Location = new System.Drawing.Point(3, 288);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(305, 51);
+            this.groupBox10.TabIndex = 0;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "串口接收6";
             // 
-            // textBox_Serial13
+            // textBox_Serial06
             // 
-            this.textBox_Serial13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Serial13.Location = new System.Drawing.Point(3, 17);
-            this.textBox_Serial13.Multiline = true;
-            this.textBox_Serial13.Name = "textBox_Serial13";
-            this.textBox_Serial13.Size = new System.Drawing.Size(332, 20);
-            this.textBox_Serial13.TabIndex = 0;
+            this.textBox_Serial06.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial06.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial06.Multiline = true;
+            this.textBox_Serial06.Name = "textBox_Serial06";
+            this.textBox_Serial06.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial06.TabIndex = 0;
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.textBox_Serial11);
+            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox15.Location = new System.Drawing.Point(3, 573);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(305, 51);
+            this.groupBox15.TabIndex = 0;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "串口接收11";
+            // 
+            // textBox_Serial11
+            // 
+            this.textBox_Serial11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial11.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial11.Multiline = true;
+            this.textBox_Serial11.Name = "textBox_Serial11";
+            this.textBox_Serial11.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial11.TabIndex = 0;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.textBox_Serial03);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(3, 117);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(305, 51);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "串口接收3";
+            // 
+            // textBox_Serial03
+            // 
+            this.textBox_Serial03.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial03.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial03.Multiline = true;
+            this.textBox_Serial03.Name = "textBox_Serial03";
+            this.textBox_Serial03.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial03.TabIndex = 0;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.textBox_Serial10);
+            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox14.Location = new System.Drawing.Point(3, 516);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(305, 51);
+            this.groupBox14.TabIndex = 0;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "串口接收10";
+            // 
+            // textBox_Serial10
+            // 
+            this.textBox_Serial10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial10.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial10.Multiline = true;
+            this.textBox_Serial10.Name = "textBox_Serial10";
+            this.textBox_Serial10.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial10.TabIndex = 0;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.textBox_Serial05);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox9.Location = new System.Drawing.Point(3, 231);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(305, 51);
+            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "串口接收5";
+            // 
+            // textBox_Serial05
+            // 
+            this.textBox_Serial05.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial05.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial05.Multiline = true;
+            this.textBox_Serial05.Name = "textBox_Serial05";
+            this.textBox_Serial05.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial05.TabIndex = 0;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.textBox_Serial09);
+            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox13.Location = new System.Drawing.Point(3, 459);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(305, 51);
+            this.groupBox13.TabIndex = 0;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "串口接收9";
+            // 
+            // textBox_Serial09
+            // 
+            this.textBox_Serial09.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial09.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial09.Multiline = true;
+            this.textBox_Serial09.Name = "textBox_Serial09";
+            this.textBox_Serial09.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial09.TabIndex = 0;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.textBox_Serial04);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox8.Location = new System.Drawing.Point(3, 174);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(305, 51);
+            this.groupBox8.TabIndex = 0;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "串口接收4";
+            // 
+            // textBox_Serial04
+            // 
+            this.textBox_Serial04.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial04.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial04.Multiline = true;
+            this.textBox_Serial04.Name = "textBox_Serial04";
+            this.textBox_Serial04.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial04.TabIndex = 0;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.textBox_Serial08);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox12.Location = new System.Drawing.Point(3, 402);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(305, 51);
+            this.groupBox12.TabIndex = 0;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "串口接收8";
+            // 
+            // textBox_Serial08
+            // 
+            this.textBox_Serial08.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial08.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial08.Multiline = true;
+            this.textBox_Serial08.Name = "textBox_Serial08";
+            this.textBox_Serial08.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial08.TabIndex = 0;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.textBox_Serial07);
+            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox11.Location = new System.Drawing.Point(3, 345);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(305, 51);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "串口接收7";
+            // 
+            // textBox_Serial07
+            // 
+            this.textBox_Serial07.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_Serial07.Location = new System.Drawing.Point(3, 17);
+            this.textBox_Serial07.Multiline = true;
+            this.textBox_Serial07.Name = "textBox_Serial07";
+            this.textBox_Serial07.Size = new System.Drawing.Size(299, 31);
+            this.textBox_Serial07.TabIndex = 0;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // button3
             // 
@@ -1737,11 +1726,30 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
+            this.zedGraphControl1.IsShowPointValues = true;
+            this.zedGraphControl1.Location = new System.Drawing.Point(3, 476);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.PointValueFormat = "G";
+            this.zedGraphControl1.Size = new System.Drawing.Size(737, 287);
+            this.zedGraphControl1.TabIndex = 104;
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 10000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 642);
+            this.ClientSize = new System.Drawing.Size(1214, 788);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -1760,46 +1768,45 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_R1)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_R1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1897,7 +1904,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btn_Output;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.Label label85;
@@ -1942,6 +1948,8 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox textBox_Serial08;
         private System.Windows.Forms.Button button3;
+        private ZedGraph.ZedGraphControl zedGraphControl1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
