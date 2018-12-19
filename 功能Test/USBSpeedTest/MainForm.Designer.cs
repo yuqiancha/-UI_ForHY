@@ -105,6 +105,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.查看AD数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -163,7 +164,6 @@
             this.textBox_Serial07 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button3 = new System.Windows.Forms.Button();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -1109,6 +1109,19 @@
             this.splitContainer1.SplitterDistance = 746;
             this.splitContainer1.TabIndex = 89;
             // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
+            this.zedGraphControl1.IsShowPointValues = true;
+            this.zedGraphControl1.Location = new System.Drawing.Point(3, 476);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.PointValueFormat = "G";
+            this.zedGraphControl1.Size = new System.Drawing.Size(737, 287);
+            this.zedGraphControl1.TabIndex = 104;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button7);
@@ -1469,6 +1482,7 @@
             this.textBox_Serial01.Name = "textBox_Serial01";
             this.textBox_Serial01.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial01.TabIndex = 0;
+            this.textBox_Serial01.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox17
             // 
@@ -1489,6 +1503,7 @@
             this.textBox_Serial13.Name = "textBox_Serial13";
             this.textBox_Serial13.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial13.TabIndex = 0;
+            this.textBox_Serial13.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox6
             // 
@@ -1510,6 +1525,7 @@
             this.textBox_Serial02.Name = "textBox_Serial02";
             this.textBox_Serial02.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial02.TabIndex = 0;
+            this.textBox_Serial02.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox16
             // 
@@ -1530,6 +1546,7 @@
             this.textBox_Serial12.Name = "textBox_Serial12";
             this.textBox_Serial12.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial12.TabIndex = 0;
+            this.textBox_Serial12.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox10
             // 
@@ -1550,6 +1567,7 @@
             this.textBox_Serial06.Name = "textBox_Serial06";
             this.textBox_Serial06.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial06.TabIndex = 0;
+            this.textBox_Serial06.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox15
             // 
@@ -1570,6 +1588,7 @@
             this.textBox_Serial11.Name = "textBox_Serial11";
             this.textBox_Serial11.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial11.TabIndex = 0;
+            this.textBox_Serial11.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox7
             // 
@@ -1590,6 +1609,7 @@
             this.textBox_Serial03.Name = "textBox_Serial03";
             this.textBox_Serial03.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial03.TabIndex = 0;
+            this.textBox_Serial03.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox14
             // 
@@ -1610,6 +1630,7 @@
             this.textBox_Serial10.Name = "textBox_Serial10";
             this.textBox_Serial10.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial10.TabIndex = 0;
+            this.textBox_Serial10.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox9
             // 
@@ -1630,6 +1651,7 @@
             this.textBox_Serial05.Name = "textBox_Serial05";
             this.textBox_Serial05.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial05.TabIndex = 0;
+            this.textBox_Serial05.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox13
             // 
@@ -1650,6 +1672,7 @@
             this.textBox_Serial09.Name = "textBox_Serial09";
             this.textBox_Serial09.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial09.TabIndex = 0;
+            this.textBox_Serial09.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox8
             // 
@@ -1670,6 +1693,7 @@
             this.textBox_Serial04.Name = "textBox_Serial04";
             this.textBox_Serial04.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial04.TabIndex = 0;
+            this.textBox_Serial04.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox12
             // 
@@ -1690,6 +1714,7 @@
             this.textBox_Serial08.Name = "textBox_Serial08";
             this.textBox_Serial08.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial08.TabIndex = 0;
+            this.textBox_Serial08.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // groupBox11
             // 
@@ -1710,6 +1735,7 @@
             this.textBox_Serial07.Name = "textBox_Serial07";
             this.textBox_Serial07.Size = new System.Drawing.Size(299, 31);
             this.textBox_Serial07.TabIndex = 0;
+            this.textBox_Serial07.TextChanged += new System.EventHandler(this.textBox_Serial01_TextChanged);
             // 
             // timer1
             // 
@@ -1725,19 +1751,6 @@
             this.button3.Text = "清空串口接收";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_2);
-            // 
-            // zedGraphControl1
-            // 
-            this.zedGraphControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
-            this.zedGraphControl1.IsShowPointValues = true;
-            this.zedGraphControl1.Location = new System.Drawing.Point(3, 476);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.PointValueFormat = "G";
-            this.zedGraphControl1.Size = new System.Drawing.Size(737, 287);
-            this.zedGraphControl1.TabIndex = 104;
             // 
             // timer2
             // 

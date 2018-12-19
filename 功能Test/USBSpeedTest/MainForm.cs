@@ -318,9 +318,9 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                         byte[] Svbuf = new byte[buflen];
                         Array.Copy(buf, Svbuf, buflen);
 
-                        SaveFile.Lock_1.EnterWriteLock();
-                        SaveFile.DataQueue_SC1.Enqueue(Svbuf);
-                        SaveFile.Lock_1.ExitWriteLock();
+                        //SaveFile.Lock_1.EnterWriteLock();
+                        //SaveFile.DataQueue_SC1.Enqueue(Svbuf);
+                        //SaveFile.Lock_1.ExitWriteLock();
 
                         while (TempStoreBufTag >= 4096)
                         {
@@ -432,9 +432,9 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                 //FF08为短帧通道
                 byte[] bufsav = new byte[4092];
                 Array.Copy(buf_LongFrame, 4, bufsav, 0, 4092);
-                SaveFile.Lock_2.EnterWriteLock();
-                SaveFile.DataQueue_SC2.Enqueue(bufsav);
-                SaveFile.Lock_2.ExitWriteLock();
+                //SaveFile.Lock_2.EnterWriteLock();
+                //SaveFile.DataQueue_SC2.Enqueue(bufsav);
+                //SaveFile.Lock_2.ExitWriteLock();
 
                 for (int i = 0; i < 6; i++)
                 {
@@ -577,14 +577,16 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                         int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
-                        SaveFile.Lock_13.EnterWriteLock();
-                        SaveFile.DataQueue_SC13.Enqueue(buf1D0x);
-                        SaveFile.Lock_13.ExitWriteLock();
+
+                        //SaveFile.Lock_13.EnterWriteLock();
+                        //SaveFile.DataQueue_SC13.Enqueue(buf1D0x);
+                        //SaveFile.Lock_13.ExitWriteLock();
 
                         lock (Data.ADList01)
                         {
-                            for (int j = 0; j < num; j++)
-                                Data.ADList01.Add(buf1D0x[j]);
+                            Data.ADList01.AddRange(buf1D0x);
+                            //for (int j = 0; j < num; j++)
+                            //    Data.ADList01.Add(buf1D0x[j]);
                         }
                     }
                     else if (bufsav[i * 682 + 0] == 0x1D && bufsav[i * 682 + 1] == 0x0E)
@@ -592,13 +594,14 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                         int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
-                        SaveFile.Lock_14.EnterWriteLock();
-                        SaveFile.DataQueue_SC14.Enqueue(buf1D0x);
-                        SaveFile.Lock_14.ExitWriteLock();
+                        //SaveFile.Lock_14.EnterWriteLock();
+                        //SaveFile.DataQueue_SC14.Enqueue(buf1D0x);
+                        //SaveFile.Lock_14.ExitWriteLock();
                         lock (Data.ADList02)
                         {
-                            for (int j = 0; j < num; j++)
-                                Data.ADList02.Add(buf1D0x[j]);
+                            Data.ADList02.AddRange(buf1D0x);
+                            //for (int j = 0; j < num; j++)
+                            //    Data.ADList02.Add(buf1D0x[j]);
                         }
 
                     }
@@ -694,7 +697,7 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
 
                 if (Tag1 == false && Tag2 == false)
                 {
-                    Thread.Sleep(500);
+                    Thread.Sleep(100);
                 }
 
 
@@ -1141,19 +1144,29 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            this.textBox_Serial01.Clear();
-            this.textBox_Serial02.Clear();
-            this.textBox_Serial03.Clear();
-            this.textBox_Serial04.Clear();
-            this.textBox_Serial05.Clear();
-            this.textBox_Serial06.Clear();
-            this.textBox_Serial07.Clear();
-            this.textBox_Serial08.Clear();
-            this.textBox_Serial09.Clear();
-            this.textBox_Serial10.Clear();
-            this.textBox_Serial11.Clear();
-            this.textBox_Serial12.Clear();
-            this.textBox_Serial13.Clear();
+            //this.textBox_Serial01.Clear();
+            //this.textBox_Serial02.Clear();
+            //this.textBox_Serial03.Clear();
+            //this.textBox_Serial04.Clear();
+            //this.textBox_Serial05.Clear();
+            //this.textBox_Serial06.Clear();
+            //this.textBox_Serial07.Clear();
+            //this.textBox_Serial08.Clear();
+            //this.textBox_Serial09.Clear();
+            //this.textBox_Serial10.Clear();
+            //this.textBox_Serial11.Clear();
+            //this.textBox_Serial12.Clear();
+            //this.textBox_Serial13.Clear();
+        }
+
+        private void textBox_Serial01_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            string str = textBox.Text;
+            if(str.Count()>100)
+            {
+                textBox.Clear();
+            }
         }
     }
 
