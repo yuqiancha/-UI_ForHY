@@ -105,7 +105,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.查看AD数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -165,6 +164,28 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.textBox_crc16_rest = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox_value = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox_addr = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox_addr_c1 = new System.Windows.Forms.TextBox();
+            this.textBox_value_c1 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox_addr_c2 = new System.Windows.Forms.TextBox();
+            this.textBox_value_c2 = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -194,6 +215,9 @@
             this.groupBox8.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            this.groupBox19.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -1091,7 +1115,13 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.zedGraphControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox11);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox19);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox18);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox5);
+            this.splitContainer1.Panel1.Controls.Add(this.label21);
+            this.splitContainer1.Panel1.Controls.Add(this.button4);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox_crc16_rest);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btn_Output);
@@ -1108,19 +1138,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(1214, 763);
             this.splitContainer1.SplitterDistance = 746;
             this.splitContainer1.TabIndex = 89;
-            // 
-            // zedGraphControl1
-            // 
-            this.zedGraphControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
-            this.zedGraphControl1.IsShowPointValues = true;
-            this.zedGraphControl1.Location = new System.Drawing.Point(3, 476);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.PointValueFormat = "G";
-            this.zedGraphControl1.Size = new System.Drawing.Size(737, 287);
-            this.zedGraphControl1.TabIndex = 104;
             // 
             // groupBox4
             // 
@@ -1758,6 +1775,213 @@
             this.timer2.Interval = 10000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // textBox_crc16_rest
+            // 
+            this.textBox_crc16_rest.Location = new System.Drawing.Point(198, 533);
+            this.textBox_crc16_rest.Name = "textBox_crc16_rest";
+            this.textBox_crc16_rest.Size = new System.Drawing.Size(60, 21);
+            this.textBox_crc16_rest.TabIndex = 104;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(20, 533);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(118, 23);
+            this.button4.TabIndex = 105;
+            this.button4.Text = "计算crc16";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(138, 539);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(53, 12);
+            this.label21.TabIndex = 106;
+            this.label21.Text = "计算结果";
+            // 
+            // textBox_value
+            // 
+            this.textBox_value.Location = new System.Drawing.Point(170, 34);
+            this.textBox_value.Name = "textBox_value";
+            this.textBox_value.Size = new System.Drawing.Size(103, 21);
+            this.textBox_value.TabIndex = 107;
+            this.textBox_value.Text = "5";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(10, 34);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 108;
+            this.button6.Text = "输出";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label27);
+            this.groupBox5.Controls.Add(this.label26);
+            this.groupBox5.Controls.Add(this.textBox_addr);
+            this.groupBox5.Controls.Add(this.textBox_value);
+            this.groupBox5.Controls.Add(this.button6);
+            this.groupBox5.Location = new System.Drawing.Point(345, 480);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(365, 74);
+            this.groupBox5.TabIndex = 109;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "串口13-模拟输出盒";
+            // 
+            // textBox_addr
+            // 
+            this.textBox_addr.Location = new System.Drawing.Point(96, 34);
+            this.textBox_addr.Name = "textBox_addr";
+            this.textBox_addr.Size = new System.Drawing.Size(53, 21);
+            this.textBox_addr.TabIndex = 109;
+            this.textBox_addr.Text = "00";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(94, 17);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(71, 12);
+            this.label26.TabIndex = 110;
+            this.label26.Text = "地址(00-05)";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(171, 17);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(77, 12);
+            this.label27.TabIndex = 110;
+            this.label27.Text = "电压值(0-10)";
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.label28);
+            this.groupBox18.Controls.Add(this.label29);
+            this.groupBox18.Controls.Add(this.textBox_addr_c1);
+            this.groupBox18.Controls.Add(this.textBox_value_c1);
+            this.groupBox18.Controls.Add(this.button8);
+            this.groupBox18.Location = new System.Drawing.Point(345, 560);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(365, 74);
+            this.groupBox18.TabIndex = 109;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "串口01-扭矩转速传感器1";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(171, 17);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(149, 12);
+            this.label28.TabIndex = 110;
+            this.label28.Text = "前2字节转矩，后2字节转速";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(94, 17);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(71, 12);
+            this.label29.TabIndex = 110;
+            this.label29.Text = "地址(00-ff)";
+            // 
+            // textBox_addr_c1
+            // 
+            this.textBox_addr_c1.Location = new System.Drawing.Point(96, 34);
+            this.textBox_addr_c1.Name = "textBox_addr_c1";
+            this.textBox_addr_c1.Size = new System.Drawing.Size(53, 21);
+            this.textBox_addr_c1.TabIndex = 109;
+            this.textBox_addr_c1.Text = "01";
+            // 
+            // textBox_value_c1
+            // 
+            this.textBox_value_c1.Location = new System.Drawing.Point(170, 34);
+            this.textBox_value_c1.Name = "textBox_value_c1";
+            this.textBox_value_c1.Size = new System.Drawing.Size(103, 21);
+            this.textBox_value_c1.TabIndex = 107;
+            this.textBox_value_c1.Text = "03e803e8";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(10, 34);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 108;
+            this.button8.Text = "输出";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.label30);
+            this.groupBox19.Controls.Add(this.label31);
+            this.groupBox19.Controls.Add(this.textBox_addr_c2);
+            this.groupBox19.Controls.Add(this.textBox_value_c2);
+            this.groupBox19.Controls.Add(this.button9);
+            this.groupBox19.Location = new System.Drawing.Point(345, 647);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(365, 74);
+            this.groupBox19.TabIndex = 109;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "串口02-扭矩转速传感器1";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(171, 17);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(149, 12);
+            this.label30.TabIndex = 110;
+            this.label30.Text = "前2字节转矩，后2字节转速";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(94, 17);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(71, 12);
+            this.label31.TabIndex = 110;
+            this.label31.Text = "地址(00-ff)";
+            // 
+            // textBox_addr_c2
+            // 
+            this.textBox_addr_c2.Location = new System.Drawing.Point(96, 34);
+            this.textBox_addr_c2.Name = "textBox_addr_c2";
+            this.textBox_addr_c2.Size = new System.Drawing.Size(53, 21);
+            this.textBox_addr_c2.TabIndex = 109;
+            this.textBox_addr_c2.Text = "01";
+            // 
+            // textBox_value_c2
+            // 
+            this.textBox_value_c2.Location = new System.Drawing.Point(170, 34);
+            this.textBox_value_c2.Name = "textBox_value_c2";
+            this.textBox_value_c2.Size = new System.Drawing.Size(103, 21);
+            this.textBox_value_c2.TabIndex = 107;
+            this.textBox_value_c2.Text = "03e803e8";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(10, 34);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 108;
+            this.button9.Text = "输出";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_1);
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(20, 567);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(238, 21);
+            this.textBox11.TabIndex = 110;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1820,6 +2044,12 @@
             this.groupBox12.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1961,8 +2191,29 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox textBox_Serial08;
         private System.Windows.Forms.Button button3;
-        private ZedGraph.ZedGraphControl zedGraphControl1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox_crc16_rest;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox textBox_value;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBox_addr;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox textBox_addr_c2;
+        private System.Windows.Forms.TextBox textBox_value_c2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox textBox_addr_c1;
+        private System.Windows.Forms.TextBox textBox_value_c1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox textBox11;
     }
 }
 

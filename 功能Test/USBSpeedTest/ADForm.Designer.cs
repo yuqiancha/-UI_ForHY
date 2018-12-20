@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -59,22 +62,48 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(287, 475);
+            this.dataGridView1.Size = new System.Drawing.Size(234, 475);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "序号";
+            this.Column1.HeaderText = "序号";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "名称";
+            this.Column2.HeaderText = "名称";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "测量值";
+            dataGridViewCellStyle13.Format = "N3";
+            dataGridViewCellStyle13.NullValue = "0.000";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column3.HeaderText = "测量值";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 80;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.zedGraphControl1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(586, 481);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 481);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // dataGridView2
@@ -88,40 +117,19 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(296, 3);
+            this.dataGridView2.Location = new System.Drawing.Point(243, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(287, 475);
+            this.dataGridView2.Size = new System.Drawing.Size(234, 475);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "序号";
-            this.Column1.HeaderText = "序号";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "名称";
-            this.Column2.HeaderText = "名称";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "测量值";
-            dataGridViewCellStyle1.Format = "N3";
-            dataGridViewCellStyle1.NullValue = "0.000";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column3.HeaderText = "测量值";
-            this.Column3.Name = "Column3";
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "序号";
             this.dataGridViewTextBoxColumn1.HeaderText = "序号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 60;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -133,17 +141,37 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "测量值";
-            dataGridViewCellStyle2.Format = "N3";
-            dataGridViewCellStyle2.NullValue = "0.000";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Format = "N3";
+            dataGridViewCellStyle14.NullValue = "0.000";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn3.HeaderText = "测量值";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 80;
+            // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
+            this.zedGraphControl1.IsShowPointValues = true;
+            this.zedGraphControl1.Location = new System.Drawing.Point(483, 3);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.PointValueFormat = "G";
+            this.zedGraphControl1.Size = new System.Drawing.Size(714, 475);
+            this.zedGraphControl1.TabIndex = 105;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ADForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 481);
+            this.ClientSize = new System.Drawing.Size(1200, 481);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ADForm";
             this.Text = "ADForm";
@@ -167,5 +195,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private ZedGraph.ZedGraphControl zedGraphControl1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

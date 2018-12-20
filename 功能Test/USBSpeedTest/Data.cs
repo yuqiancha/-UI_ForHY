@@ -6,11 +6,15 @@ using System.IO;
 using System.Xml.Linq;
 using System.Xml;
 using System.Data;
+using ZedGraph;
 
 namespace USBSpeedTest
 {
     class Data
     {
+
+        public static GraphPane MyPane;
+
         public static int SCid = 0;
         public static int OCid = 2;
         public static int DARid = 3;
@@ -222,6 +226,67 @@ namespace USBSpeedTest
 
         }
 
+        public static ushort CRChware(ushort data, ushort genpoly, ushort crc)
+        {
+            int i = 8;
+            data <<= 8;
+            for (i = 8; i > 0; i--)
+            {
+                if (((data ^ crc) & 0x8000) != 0)
+                {
+                    crc = (ushort)((crc << 1) ^ genpoly);
+                }
+                else
+                {
+                    crc <<= 1;
+                }
+                data <<= 1;
+            }
+            return crc;
+        }
+
+
+        /// <summary>
+        /// CRC校验
+        /// </summary>
+        /// <param name="data">校验数据</param>
+        /// <returns>高低8位</returns>
+        public static string CRCCalc(string data)
+        {
+            string[] datas = data.Split(' ');
+            List<byte> bytedata = new List<byte>();
+
+            foreach (string str in datas)
+            {
+                bytedata.Add(byte.Parse(str, System.Globalization.NumberStyles.AllowHexSpecifier));
+            }
+            byte[] crcbuf = bytedata.ToArray();
+            //计算并填写CRC校验码
+            int crc = 0xffff;
+            int len = crcbuf.Length;
+            for (int n = 0; n < len; n++)
+            {
+                byte i;
+                crc = crc ^ crcbuf[n];
+                for (i = 0; i < 8; i++)
+                {
+                    int TT;
+                    TT = crc & 1;
+                    crc = crc >> 1;
+                    crc = crc & 0x7fff;
+                    if (TT == 1)
+                    {
+                        crc = crc ^ 0xa001;
+                    }
+                    crc = crc & 0xffff;
+                }
+
+            }
+            string[] redata = new string[2];
+            redata[1] = Convert.ToString((byte)((crc >> 8) & 0xff), 16);
+            redata[0] = Convert.ToString((byte)((crc & 0xff)), 16);
+            return redata[0].PadLeft(2, '0') + " " + redata[1].PadLeft(2,'0') ;
+        }
 
 
     }

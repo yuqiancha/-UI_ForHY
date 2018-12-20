@@ -17,8 +17,6 @@ namespace USBSpeedTest
 {
     public partial class MainForm : Form
     {
-
-        GraphPane MyPane;
         public ADForm myADForm;
         SaveFile FileThread = null;
         public byte[] TempStoreBuf = new byte[8192];
@@ -121,36 +119,6 @@ namespace USBSpeedTest
         private void MainForm_Load(object sender, EventArgs e)
         {
             SetDevice(false);
-
-            //       zedGraphControl1.GraphPane.Title = "AD显示表";
-            MyPane = zedGraphControl1.GraphPane;
-            MyPane.Title = "AD显示表";
-            MyPane.XAxis.Title = "时间";
-            MyPane.YAxis.Title = "值";
-            double[] x = new double[100];
-            double[] y = new double[100];
-            for (int i = 0; i < 1; i++)
-            {
-                x[i] = 0;
-                y[i] = 0;
-            }
-
-            MyPane.AddCurve("AD1", x, y, Color.Red, SymbolType.Square);
-            MyPane.AddCurve("AD2", x, y, Color.Gold, SymbolType.Square);
-            MyPane.AddCurve("AD3", x, y, Color.Green, SymbolType.Square);
-            MyPane.AddCurve("AD4", x, y, Color.Blue, SymbolType.Square);
-            MyPane.AddCurve("AD5", x, y, Color.Red, SymbolType.Square);
-            MyPane.AddCurve("AD6", x, y, Color.Gold, SymbolType.Square);
-            MyPane.AddCurve("AD7", x, y, Color.Green, SymbolType.Square);
-            MyPane.AddCurve("AD8", x, y, Color.Blue, SymbolType.Square);
-            MyPane.AddCurve("AD9", x, y, Color.Red, SymbolType.Square);
-            MyPane.AddCurve("AD10", x, y, Color.Gold, SymbolType.Square);
-            MyPane.AddCurve("AD11", x, y, Color.Green, SymbolType.Square);
-            MyPane.AddCurve("AD12", x, y, Color.Blue, SymbolType.Square);
-            MyPane.AddCurve("AD13", x, y, Color.Red, SymbolType.Square);
-            MyPane.AddCurve("AD14", x, y, Color.Gold, SymbolType.Square);
-            MyPane.AddCurve("AD15", x, y, Color.Green, SymbolType.Square);
-            MyPane.AddCurve("AD16", x, y, Color.Blue, SymbolType.Square);
 
             Data.dt_AD01.Columns.Add("序号", typeof(Int32));
             Data.dt_AD01.Columns.Add("名称", typeof(String));
@@ -974,24 +942,15 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
         }
 
         bool ExecDec = false;
-        int count = 0;
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (Data.AdFrmIsAlive)
             {
-                for (int i = 0; i < 8; i++)
-                {
-                    Data.dt_AD01.Rows[i]["测量值"] = Data.daRe_AD01[i];
-                    Data.dt_AD02.Rows[i]["测量值"] = Data.daRe_AD02[i];
 
-                    MyPane.CurveList[i].AddPoint(count, Data.daRe_AD01[i]);
-                    MyPane.CurveList[i+8].AddPoint(count, Data.daRe_AD02[i]);
-                }
-                count++;
             }
 
-            zedGraphControl1.AxisChange();
-            zedGraphControl1.Invalidate();
+
 
 
         }
@@ -1166,6 +1125,113 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
             if(str.Count()>100)
             {
                 textBox.Clear();
+            }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            string temp = textBox11.Text.Trim();
+            if (temp != null)
+            {
+                textBox_crc16_rest.Text = Data.CRCCalc(temp);
+                textBox7.Text = (temp + textBox_crc16_rest.Text).Replace(" ", "");
+            }
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            Register.Byte84H = (byte)(Register.Byte84H | (byte)(0x01 << 5));
+            USB.SendCMD(Data.OnlyId, 0x84, Register.Byte84H);
+
+            Register.Byte84H = (byte)(Register.Byte84H & (byte)(0x7f - (byte)(0x01 << 5)));
+            USB.SendCMD(Data.OnlyId, 0x84, Register.Byte84H);
+
+            string input = textBox_value.Text.Trim();
+
+            double V = double.Parse(input);
+
+            int mazi = (int)((V * 4095) / 10);
+            string value = mazi.ToString("x4");
+            String Str_Content = "01 06 00 " +textBox_addr.Text +" "+ value.Substring(0,2)+" "+value.Substring(2,2);
+            int lenth = (Str_Content.Length) / 2 + 2;
+            if (lenth >= 0)
+            {
+                string crc = Data.CRCCalc(Str_Content).Replace(" ","").PadLeft(4,'0');
+                byte[] temp = StrToHexByte("1D0C" + lenth.ToString("x4") + Str_Content +crc+ "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+
+                USB.SendData(Data.OnlyId, temp);
+            }
+            else
+            {
+                MyLog.Error("请至少输入4个Byte的数据");
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Register.Byte83H = (byte)(Register.Byte83H | (byte)(0x01 << 1));
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & (byte)(0x7f - (byte)(0x01 << 1)));
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+
+            String Str_Content = textBox_addr_c1.Text + "3C04" + textBox_value_c1.Text;
+            int lenth = (Str_Content.Length) / 2 + 2;
+            if (lenth >= 0)
+            {
+
+                byte[] byteRe = StrToHexByte(Str_Content);
+
+                ushort CRC = 0xffff;
+                ushort genpoly = 0xa001;
+                for (int i = 0; i < byteRe.Count(); i = i + 1)
+                {
+                    CRC = Data.CRChware(byteRe[i], genpoly, CRC);
+                }
+
+
+                byte[] temp = StrToHexByte("1D01" + lenth.ToString("x4") + Str_Content + CRC.ToString("x4").Substring(2,2)+ CRC.ToString("x4").Substring(0, 2) + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+
+                USB.SendData(Data.OnlyId, temp);
+            }
+            else
+            {
+                MyLog.Error("请至少输入4个Byte的数据");
+            }
+        }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            Register.Byte83H = (byte)(Register.Byte83H | (byte)(0x01 << 2));
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & (byte)(0x7f - (byte)(0x01 << 2)));
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+
+            String Str_Content = textBox_addr_c2.Text + "3C04" + textBox_value_c2.Text;
+            int lenth = (Str_Content.Length) / 2 + 2;
+            if (lenth >= 0)
+            {
+
+                byte[] byteRe = StrToHexByte(Str_Content);
+
+                ushort CRC = 0xffff;
+                ushort genpoly = 0xa001;
+                for (int i = 0; i < byteRe.Count(); i = i + 1)
+                {
+                    CRC = Data.CRChware(byteRe[i], genpoly, CRC);
+                }
+
+
+                byte[] temp = StrToHexByte("1D02" + lenth.ToString("x4") + Str_Content + CRC.ToString("x4").Substring(2, 2) + CRC.ToString("x4").Substring(0, 2) + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+
+                USB.SendData(Data.OnlyId, temp);
+            }
+            else
+            {
+                MyLog.Error("请至少输入4个Byte的数据");
             }
         }
     }
