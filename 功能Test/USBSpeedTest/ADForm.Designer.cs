@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -82,9 +82,9 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "测量值";
-            dataGridViewCellStyle13.Format = "N3";
-            dataGridViewCellStyle13.NullValue = "0.000";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Format = "N3";
+            dataGridViewCellStyle1.NullValue = "0.000";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "测量值";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -105,6 +105,19 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 481);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
+            this.zedGraphControl1.IsShowPointValues = true;
+            this.zedGraphControl1.Location = new System.Drawing.Point(483, 3);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.PointValueFormat = "G";
+            this.zedGraphControl1.Size = new System.Drawing.Size(714, 475);
+            this.zedGraphControl1.TabIndex = 105;
             // 
             // dataGridView2
             // 
@@ -141,30 +154,16 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "测量值";
-            dataGridViewCellStyle14.Format = "N3";
-            dataGridViewCellStyle14.NullValue = "0.000";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Format = "N3";
+            dataGridViewCellStyle2.NullValue = "0.000";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "测量值";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 80;
             // 
-            // zedGraphControl1
-            // 
-            this.zedGraphControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
-            this.zedGraphControl1.IsShowPointValues = true;
-            this.zedGraphControl1.Location = new System.Drawing.Point(483, 3);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.PointValueFormat = "G";
-            this.zedGraphControl1.Size = new System.Drawing.Size(714, 475);
-            this.zedGraphControl1.TabIndex = 105;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ADForm

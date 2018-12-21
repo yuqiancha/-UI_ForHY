@@ -118,6 +118,7 @@ namespace USBSpeedTest
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+
             SetDevice(false);
 
             Data.dt_AD01.Columns.Add("序号", typeof(Int32));
@@ -275,20 +276,22 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                     byte[] buf = new byte[4096];
                     int buflen = 4096;
 
-                    MyDevice01.BulkInEndPt.XferData(ref buf, ref buflen);
+                    lock(MyDevice01)
+                        MyDevice01.BulkInEndPt.XferData(ref buf, ref buflen);
 
                     if (buflen > 0)
                     {
                         Trace.WriteLine("收到数据包长度为：" + buflen.ToString());
-                        Array.Copy(buf, 0, TempStoreBuf, TempStoreBufTag, buflen);
+                    //    lock (TempStoreBuf)
+                            Array.Copy(buf, 0, TempStoreBuf, TempStoreBufTag, buflen);
                         TempStoreBufTag += buflen;
 
                         byte[] Svbuf = new byte[buflen];
                         Array.Copy(buf, Svbuf, buflen);
 
-                        //SaveFile.Lock_1.EnterWriteLock();
-                        //SaveFile.DataQueue_SC1.Enqueue(Svbuf);
-                        //SaveFile.Lock_1.ExitWriteLock();
+                        SaveFile.Lock_1.EnterWriteLock();
+                        SaveFile.DataQueue_SC1.Enqueue(Svbuf);
+                        SaveFile.Lock_1.ExitWriteLock();
 
                         while (TempStoreBufTag >= 4096)
                         {
@@ -300,7 +303,8 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                             {
                                 MyLog.Error("收到异常帧！");
                                 Trace.WriteLine("收到异常帧" + TempStoreBufTag.ToString());
-                                Array.Clear(TempStoreBuf, 0, TempStoreBufTag);
+                         //       lock(TempStoreBuf)
+                                    Array.Clear(TempStoreBuf, 0, TempStoreBufTag);
                                 TempStoreBufTag = 0;
                             }
                         }
@@ -948,8 +952,19 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
             if (Data.AdFrmIsAlive)
             {
 
-            }
+                for (int i = 0; i < 8; i++)
+                {
+                    Data.dt_AD01.Rows[i]["测量值"] = Data.daRe_AD01[i];
+                    Data.dt_AD02.Rows[i]["测量值"] = Data.daRe_AD02[i];
 
+                    Data.MyPane.CurveList[i].AddPoint(Data.PaneCount, Data.daRe_AD01[i]);
+                    Data.MyPane.CurveList[i + 8].AddPoint(Data.PaneCount, Data.daRe_AD02[i]);
+                }
+
+                Data.PaneCount++;
+
+
+            }
 
 
 
@@ -1007,13 +1022,13 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                 SendR = 0x400 + ((RValue / 20) & 0x3ff);// + Data.value_R2[row + 24 * V];
 
 
-                RSend[4+0 + 4 * i] = 0x00;
-                RSend[4+1 + 4 * i] = 0x00;
+                RSend[4 + 0 + 4 * i] = 0x00;
+                RSend[4 + 1 + 4 * i] = 0x00;
                 //RSend[4+2 + 4 * i] = (byte)((SendR & 0xff00) >> 8);
                 //RSend[4+3 + 4 * i] = (byte)(SendR & 0xff);
 
                 RSend[4 + 2 + 4 * i] = (byte)(SendR & 0xff);
-                RSend[4 + 3 + 4 * i] =  (byte)((SendR & 0xff00) >> 8);
+                RSend[4 + 3 + 4 * i] = (byte)((SendR & 0xff00) >> 8);
 
             }
 
@@ -1071,12 +1086,12 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
 
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
-    
-                foreach (DataRow dr in dtR1.Rows)
-                {
-                    dr["电阻"] = numericUpDown4.Value;
-                }
-            
+
+            foreach (DataRow dr in dtR1.Rows)
+            {
+                dr["电阻"] = numericUpDown4.Value;
+            }
+
         }
 
         private void groupBox6_Enter(object sender, EventArgs e)
@@ -1122,7 +1137,7 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
         {
             TextBox textBox = (TextBox)sender;
             string str = textBox.Text;
-            if(str.Count()>100)
+            if (str.Count() > 100)
             {
                 textBox.Clear();
             }
@@ -1152,12 +1167,12 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
 
             int mazi = (int)((V * 4095) / 10);
             string value = mazi.ToString("x4");
-            String Str_Content = "01 06 00 " +textBox_addr.Text +" "+ value.Substring(0,2)+" "+value.Substring(2,2);
+            String Str_Content = "01 06 00 " + textBox_addr.Text + " " + value.Substring(0, 2) + " " + value.Substring(2, 2);
             int lenth = (Str_Content.Length) / 2 + 2;
             if (lenth >= 0)
             {
-                string crc = Data.CRCCalc(Str_Content).Replace(" ","").PadLeft(4,'0');
-                byte[] temp = StrToHexByte("1D0C" + lenth.ToString("x4") + Str_Content +crc+ "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+                string crc = Data.CRCCalc(Str_Content).Replace(" ", "").PadLeft(4, '0');
+                byte[] temp = StrToHexByte("1D0C" + lenth.ToString("x4") + Str_Content + crc + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
 
                 USB.SendData(Data.OnlyId, temp);
             }
@@ -1191,7 +1206,7 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
                 }
 
 
-                byte[] temp = StrToHexByte("1D01" + lenth.ToString("x4") + Str_Content + CRC.ToString("x4").Substring(2,2)+ CRC.ToString("x4").Substring(0, 2) + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+                byte[] temp = StrToHexByte("1D01" + lenth.ToString("x4") + Str_Content + CRC.ToString("x4").Substring(2, 2) + CRC.ToString("x4").Substring(0, 2) + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
 
                 USB.SendData(Data.OnlyId, temp);
             }
@@ -1232,6 +1247,92 @@ Search the device with VID-PID 04b4-00F1 and if found, select the end point
             else
             {
                 MyLog.Error("请至少输入4个Byte的数据");
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Register.Byte83H = (byte)(Register.Byte83H | (byte)(0x01 << 4));
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & (byte)(0x7f - (byte)(0x01 << 4)));
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+
+            String Str_Content = textBox13.Text;
+
+            byte[] transBuf = new byte[Str_Content.Length + 3];
+            for (int i = 0; i < Str_Content.Length; i++)
+            {
+                transBuf[i] = (byte)Str_Content[i];
+            }
+
+            byte reslt = transBuf[0];
+            for (int i = 1; i < Str_Content.Length; i++)
+            {
+                reslt = (byte)(reslt ^ transBuf[i]);
+            }
+            byte hb = (byte)(reslt >> 4);
+            byte lb = (byte)(reslt & 0x0f);
+
+            //校验PP
+            transBuf[Str_Content.Length] = (byte)((byte)'0' + hb);
+            transBuf[Str_Content.Length + 1] = (byte)((byte)'0' + lb);
+
+            //结束符
+            transBuf[Str_Content.Length + 2] = 0x0D;
+
+
+
+            int lenth = transBuf.Count();
+            if (lenth >= 0)
+            {
+
+                String str = null;
+                for (int i = 0; i < lenth; i++) str += transBuf[i].ToString("x2");
+
+                byte[] temp = StrToHexByte("1D04" + lenth.ToString("x4") + str + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+
+                USB.SendData(Data.OnlyId, temp);
+            }
+            else
+            {
+                MyLog.Error("请至少输入4个Byte的数据");
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            string temp = textBox12.Text.Trim();
+            if (temp != null)
+            {
+                string crc = Data.CRCCalc(temp).Replace(" ", "").PadLeft(4, '0'); ;
+
+                string sendbuf = (temp + crc).Replace(" ", "");
+
+                int lenth = (sendbuf.Length) / 2;
+                if (lenth >= 0)
+                {
+                    int AddToFour = lenth % 4;
+                    if (AddToFour != 0)
+                    {
+                        for (int i = 0; i < (4 - AddToFour); i++) sendbuf += "00";
+                    }                  
+                }
+
+
+
+                Register.Byte83H = (byte)(Register.Byte83H | (byte)(0x01 << 3));
+                USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+                Register.Byte83H = (byte)(Register.Byte83H & (byte)(0x7f - (byte)(0x01 << 3)));
+                USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+
+                byte[] bufToSend = StrToHexByte("1D03" + lenth.ToString("x4") + sendbuf + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+
+                USB.SendData(Data.OnlyId, bufToSend);
+
             }
         }
     }

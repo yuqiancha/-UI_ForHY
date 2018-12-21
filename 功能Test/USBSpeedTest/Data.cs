@@ -15,6 +15,8 @@ namespace USBSpeedTest
 
         public static GraphPane MyPane;
 
+        public static int PaneCount = 0;
+
         public static int SCid = 0;
         public static int OCid = 2;
         public static int DARid = 3;

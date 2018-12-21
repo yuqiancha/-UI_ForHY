@@ -12,7 +12,7 @@ namespace USBSpeedTest
 {
     public partial class ADForm : Form
     {
-        int count = 0;
+
         public ADForm()
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace USBSpeedTest
         {
             Data.AdFrmIsAlive = true;
             Init_Table();
-            count = 0;
+            Data.PaneCount = 0;
             //       zedGraphControl1.GraphPane.Title = "AD显示表";
 
 
@@ -78,7 +78,6 @@ namespace USBSpeedTest
             Data.AdFrmIsAlive = false;
             this.Dispose();
             zedGraphControl1.Dispose();
-  
         }
 
 
@@ -87,17 +86,6 @@ namespace USBSpeedTest
         {
             if (Data.AdFrmIsAlive)
             {
-
-                for (int i = 0; i < 8; i++)
-                {
-                    Data.dt_AD01.Rows[i]["测量值"] = Data.daRe_AD01[i];
-                    Data.dt_AD02.Rows[i]["测量值"] = Data.daRe_AD02[i];
-
-                    Data.MyPane.CurveList[i].AddPoint(count, Data.daRe_AD01[i]);
-                    Data.MyPane.CurveList[i + 8].AddPoint(count, Data.daRe_AD02[i]);
-                }
-                count++;
-
                 zedGraphControl1.AxisChange();
                 zedGraphControl1.Invalidate();
             }
