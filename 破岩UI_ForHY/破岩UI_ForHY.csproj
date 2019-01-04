@@ -40,10 +40,14 @@
     <Reference Include="CodeArtEng.Extensions, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CodeArtEng.Extensions.1.2.0\lib\CodeArtEng.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="CyUSB">
+      <HintPath>.\CyUSB.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\log4net\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -65,8 +69,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function.cs" />
+    <Compile Include="LogDLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="Register.cs" />
+    <Compile Include="SaveFile.cs" />
+    <Compile Include="USB.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +104,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="配置文件\ADconfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="LogConfig.xml" />
     <None Include="Resources\red.png" />
   </ItemGroup>

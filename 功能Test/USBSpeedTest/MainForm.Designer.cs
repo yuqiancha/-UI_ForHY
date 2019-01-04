@@ -105,7 +105,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.查看AD数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -118,21 +117,29 @@
             this.textBox_addr_c1 = new System.Windows.Forms.TextBox();
             this.textBox_value_c1 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.button11 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.textBox_addr = new System.Windows.Forms.TextBox();
             this.textBox_value = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox_crc16_rest = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox_crc16_rest = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -186,13 +193,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label32 = new System.Windows.Forms.Label();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.button12 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -201,6 +201,8 @@
             this.splitContainer1.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.groupBox18.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox20.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -225,8 +227,6 @@
             this.groupBox8.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            this.groupBox20.SuspendLayout();
-            this.groupBox21.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -1146,13 +1146,6 @@
             this.splitContainer1.SplitterDistance = 746;
             this.splitContainer1.TabIndex = 89;
             // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(102, 138);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(295, 21);
-            this.textBox11.TabIndex = 110;
-            // 
             // groupBox19
             // 
             this.groupBox19.Controls.Add(this.label30);
@@ -1165,7 +1158,7 @@
             this.groupBox19.Size = new System.Drawing.Size(320, 74);
             this.groupBox19.TabIndex = 109;
             this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "1D02-扭矩转速传感器1";
+            this.groupBox19.Text = "1D03-扭矩转速传感器1";
             // 
             // label30
             // 
@@ -1223,7 +1216,7 @@
             this.groupBox18.Size = new System.Drawing.Size(320, 74);
             this.groupBox18.TabIndex = 109;
             this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "1D01-扭矩转速传感器1";
+            this.groupBox18.Text = "1D02-扭矩转速传感器1";
             // 
             // label28
             // 
@@ -1269,6 +1262,64 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.textBox12);
+            this.groupBox21.Controls.Add(this.button12);
+            this.groupBox21.Location = new System.Drawing.Point(10, 561);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(302, 74);
+            this.groupBox21.TabIndex = 109;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "1D03-循环流量传感器";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(92, 34);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(187, 21);
+            this.textBox12.TabIndex = 107;
+            this.textBox12.Text = "01 03 00 00 00 08";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(10, 34);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.TabIndex = 108;
+            this.button12.Text = "输出";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.textBox13);
+            this.groupBox20.Controls.Add(this.button11);
+            this.groupBox20.Location = new System.Drawing.Point(10, 641);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(302, 74);
+            this.groupBox20.TabIndex = 109;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "1D04-循环压力传感器";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(92, 34);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(187, 21);
+            this.textBox13.TabIndex = 107;
+            this.textBox13.Text = "$55OH+1.000";
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(10, 34);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 108;
+            this.button11.Text = "输出";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label27);
@@ -1281,7 +1332,7 @@
             this.groupBox5.Size = new System.Drawing.Size(320, 74);
             this.groupBox5.TabIndex = 109;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "1D0C-模拟输出盒";
+            this.groupBox5.Text = "1D00-模拟输出盒";
             // 
             // label27
             // 
@@ -1327,32 +1378,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(255, 118);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(71, 12);
-            this.label21.TabIndex = 106;
-            this.label21.Text = "CRC计算结果";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(12, 118);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(84, 40);
-            this.button4.TabIndex = 105;
-            this.button4.Text = "计算crc16（modbus）";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // textBox_crc16_rest
-            // 
-            this.textBox_crc16_rest.Location = new System.Drawing.Point(328, 112);
-            this.textBox_crc16_rest.Name = "textBox_crc16_rest";
-            this.textBox_crc16_rest.Size = new System.Drawing.Size(69, 21);
-            this.textBox_crc16_rest.TabIndex = 104;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBox11);
@@ -1374,6 +1399,13 @@
             this.groupBox4.TabIndex = 96;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "注数设置";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(102, 138);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(295, 21);
+            this.textBox11.TabIndex = 110;
             // 
             // button7
             // 
@@ -1411,6 +1443,24 @@
             this.label25.TabIndex = 12;
             this.label25.Text = "帧长（Byte）";
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(103, 118);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(137, 12);
+            this.label32.TabIndex = 106;
+            this.label32.Text = "输入数据，要计算的内容";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(255, 118);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(71, 12);
+            this.label21.TabIndex = 106;
+            this.label21.Text = "CRC计算结果";
+            // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(337, 13);
@@ -1418,6 +1468,23 @@
             this.textBox10.Size = new System.Drawing.Size(61, 21);
             this.textBox10.TabIndex = 11;
             this.textBox10.Text = "0";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(12, 118);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(84, 40);
+            this.button4.TabIndex = 105;
+            this.button4.Text = "计算crc16（modbus）";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // textBox_crc16_rest
+            // 
+            this.textBox_crc16_rest.Location = new System.Drawing.Point(328, 112);
+            this.textBox_crc16_rest.Name = "textBox_crc16_rest";
+            this.textBox_crc16_rest.Size = new System.Drawing.Size(69, 21);
+            this.textBox_crc16_rest.TabIndex = 104;
             // 
             // label8
             // 
@@ -1994,73 +2061,6 @@
             this.timer2.Interval = 10000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(103, 118);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(137, 12);
-            this.label32.TabIndex = 106;
-            this.label32.Text = "输入数据，要计算的内容";
-            // 
-            // groupBox20
-            // 
-            this.groupBox20.Controls.Add(this.textBox13);
-            this.groupBox20.Controls.Add(this.button11);
-            this.groupBox20.Location = new System.Drawing.Point(10, 641);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(302, 74);
-            this.groupBox20.TabIndex = 109;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "1D04-循环压力传感器";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(92, 34);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(187, 21);
-            this.textBox13.TabIndex = 107;
-            this.textBox13.Text = "$55OH+1.000";
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(10, 34);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 108;
-            this.button11.Text = "输出";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // groupBox21
-            // 
-            this.groupBox21.Controls.Add(this.textBox12);
-            this.groupBox21.Controls.Add(this.button12);
-            this.groupBox21.Location = new System.Drawing.Point(10, 561);
-            this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(302, 74);
-            this.groupBox21.TabIndex = 109;
-            this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "1D03-循环流量传感器";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(92, 34);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(187, 21);
-            this.textBox12.TabIndex = 107;
-            this.textBox12.Text = "01 03 00 00 00 08";
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(10, 34);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 108;
-            this.button12.Text = "输出";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2088,6 +2088,10 @@
             this.groupBox19.PerformLayout();
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -2129,10 +2133,6 @@
             this.groupBox12.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
-            this.groupBox21.ResumeLayout(false);
-            this.groupBox21.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

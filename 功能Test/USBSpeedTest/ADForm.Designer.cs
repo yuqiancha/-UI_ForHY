@@ -62,7 +62,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(234, 475);
+            this.dataGridView1.Size = new System.Drawing.Size(234, 443);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -98,12 +98,11 @@
             this.tableLayoutPanel1.Controls.Add(this.zedGraphControl1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 481);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1162, 449);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // zedGraphControl1
@@ -116,7 +115,7 @@
             this.zedGraphControl1.Location = new System.Drawing.Point(483, 3);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.PointValueFormat = "G";
-            this.zedGraphControl1.Size = new System.Drawing.Size(714, 475);
+            this.zedGraphControl1.Size = new System.Drawing.Size(676, 443);
             this.zedGraphControl1.TabIndex = 105;
             // 
             // dataGridView2
@@ -134,7 +133,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(234, 475);
+            this.dataGridView2.Size = new System.Drawing.Size(234, 443);
             this.dataGridView2.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1

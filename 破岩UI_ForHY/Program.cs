@@ -17,5 +17,16 @@ namespace 破岩UI_ForHY
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+        public static string GetStartupPath()
+        {
+            string path;
+            path = Application.StartupPath;
+            if (!path.EndsWith("\\"))
+            {
+                path += "\\";
+            }
+            return path;
+        }
     }
 }
