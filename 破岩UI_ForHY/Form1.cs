@@ -18,7 +18,7 @@ namespace 破岩UI_ForHY
 {
     public partial class Form1 : Form
     {
-
+        public Monitor myMonitor;
         SaveFile FileThread = null;
         public byte[] TempStoreBuf = new byte[8192];
         public int TempStoreBufTag = 0;
@@ -105,7 +105,7 @@ namespace 破岩UI_ForHY
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            myMonitor = new Monitor();
             XmlConfigurator.Configure();
             Type type = MethodBase.GetCurrentMethod().DeclaringType;
             ILog m_log = LogManager.GetLogger(type);
@@ -172,35 +172,6 @@ namespace 破岩UI_ForHY
                        Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid);
-        }
-
-
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, this.panel6.ClientRectangle,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-                       Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid);
-        }
-
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, this.panel8.ClientRectangle,
-           Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-           Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-           Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid,
-           Color.DarkSeaGreen, 2, ButtonBorderStyle.Solid);
-        }
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -498,25 +469,25 @@ namespace 破岩UI_ForHY
                         midDT = endDT;
                         double tempMB = Recv4KCounts / 256;
                         Recv4KCounts = 0;
-                        this.textBox_speed.BeginInvoke(new Action(() =>
+                        myMonitor.textBox_speed.BeginInvoke(new Action(() =>
                         {
                             double speed = tempMB / tempTime;
-                            textBox_speed.Text = speed.ToString();
-                            this.progressBar1.Value = (int)speed;
+                            myMonitor.textBox_speed.Text = speed.ToString();
+                            myMonitor.progressBar1.Value = (int)speed;
                         }));
                     }
                 }
             }
             endDT = DateTime.Now;
 
-            this.textBox_time.BeginInvoke(
+            myMonitor.textBox_time.BeginInvoke(
                 new Action(() =>
                 {
                     double costTime = endDT.Subtract(startDT).TotalSeconds;
                     double RecvdM = RecvdMB / 1024;
-                    textBox_time.Text = costTime.ToString();
-                    textBox_recvsize.Text = RecvdM.ToString();
-                    textBox_avspeed.Text = (RecvdM / costTime).ToString();
+                    myMonitor.textBox_time.Text = costTime.ToString();
+                    myMonitor.textBox_recvsize.Text = RecvdM.ToString();
+                    myMonitor.textBox_avspeed.Text = (RecvdM / costTime).ToString();
                 }));
 
         }
@@ -872,6 +843,19 @@ namespace 破岩UI_ForHY
 
 
             }
+        }
+
+        private void 实时速率ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(myMonitor!=null)
+            {
+                myMonitor.Activate();
+            }
+            else
+            {
+                myMonitor = new Monitor();
+            }
+            myMonitor.ShowDialog();
         }
     }
 }

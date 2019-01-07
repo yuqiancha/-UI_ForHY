@@ -82,3 +82,4 @@ C:\Users\Administrator\GitHub\-UI_ForHY\破岩UI_ForHY\obj\Debug\破岩UI.exe
 C:\Users\Administrator\GitHub\-UI_ForHY\破岩UI_ForHY\obj\Debug\破岩UI.pdb
 C:\Users\Administrator\GitHub\-UI_ForHY\破岩UI_ForHY\bin\Debug\CyUSB.dll
 C:\Users\Administrator\GitHub\-UI_ForHY\破岩UI_ForHY\bin\Debug\配置文件\ADconfig.xml
+C:\Users\Administrator\GitHub\-UI_ForHY\破岩UI_ForHY\obj\Debug\破岩UI_ForHY.Monitor.resources
