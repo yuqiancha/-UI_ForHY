@@ -31,6 +31,7 @@ namespace 破岩UI_ForHY
         public static List<byte> ADList02 = new List<byte>();//1D07
         public static DataTable dt_AD01 = new DataTable();
         public static DataTable dt_AD02 = new DataTable();
+
         public static double[] daRe_AD01 = new double[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
         public static double[] daRe_AD02 = new double[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
         public static bool AdFrmIsAlive = false;

@@ -13,11 +13,16 @@ using System.Diagnostics;
 using CyUSB;
 using System.Threading;
 using System.Configuration;
+using ZedGraph;
 
 namespace 破岩UI_ForHY
 {
     public partial class Form1 : Form
     {
+        public bool Chart60Tag = true;
+
+        public 数据查询 myQueryForm;
+
         public Monitor myMonitor;
         SaveFile FileThread = null;
         public byte[] TempStoreBuf = new byte[8192];
@@ -105,6 +110,7 @@ namespace 破岩UI_ForHY
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            myQueryForm = new 数据查询();
             myMonitor = new Monitor();
             XmlConfigurator.Configure();
             Type type = MethodBase.GetCurrentMethod().DeclaringType;
@@ -135,6 +141,82 @@ namespace 破岩UI_ForHY
             dataGridView1.DataSource = dt_AD;
             dataGridView1.AllowUserToAddRows = false;
 
+            SetDevice(false);
+
+            Data.MyPane = zedGraphControl1.GraphPane;
+
+            Data.MyPane.Title.Text = "AD显示表";
+
+            Data.MyPane.XAxis.Title.Text = "时间";
+
+            Data.MyPane.YAxis.Title.Text = "AD1";
+            //      Data.MyPane.YAxis.Title.FontSpec.Size = 8;
+            Data.MyPane.YAxis.Title.IsVisible = false;
+
+            Data.MyPane.Legend.Position = LegendPos.TopFlushLeft;
+            Data.MyPane.Legend.FontSpec.Size = 8;
+
+
+
+            double[] x = new double[100];
+            double[] y = new double[100];
+            for (int i = 0; i < 1; i++)
+            {
+                x[i] = 0;
+                y[i] = 0;
+            }
+
+            if (Data.MyPane.CurveList != null)
+                Data.MyPane.CurveList.Clear();
+
+            LineItem myCurve = Data.MyPane.AddCurve("AD1", x, y, Color.Red, SymbolType.Square);
+            //   myCurve.Symbol.Fill = new Fill(Color.White);
+
+            myCurve = Data.MyPane.AddCurve("AD2", x, y, Color.Gold, SymbolType.Square);
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.YAxisIndex = 1;
+
+            myCurve = Data.MyPane.AddCurve("AD3", x, y, Color.Green, SymbolType.Square);
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.YAxisIndex = 3;
+
+            Data.MyPane.AddCurve("AD4", x, y, Color.Blue, SymbolType.Square);
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.YAxisIndex = 2;
+
+
+            Data.MyPane.AddCurve("AD5", x, y, Color.Red, SymbolType.Square);
+            Data.MyPane.AddCurve("AD6", x, y, Color.Gold, SymbolType.Square);
+            Data.MyPane.AddCurve("AD7", x, y, Color.Green, SymbolType.Square);
+            Data.MyPane.AddCurve("AD8", x, y, Color.Blue, SymbolType.Square);
+            Data.MyPane.AddCurve("AD9", x, y, Color.Red, SymbolType.Square);
+            Data.MyPane.AddCurve("AD10", x, y, Color.Gold, SymbolType.Square);
+            Data.MyPane.AddCurve("AD11", x, y, Color.Green, SymbolType.Square);
+            Data.MyPane.AddCurve("AD12", x, y, Color.Blue, SymbolType.Square);
+            Data.MyPane.AddCurve("AD13", x, y, Color.Red, SymbolType.Square);
+            Data.MyPane.AddCurve("AD14", x, y, Color.Gold, SymbolType.Square);
+            Data.MyPane.AddCurve("AD15", x, y, Color.Green, SymbolType.Square);
+            Data.MyPane.AddCurve("AD16", x, y, Color.Blue, SymbolType.Square);
+
+
+
+            YAxis yAxis2 = new YAxis("AD2");
+            Data.MyPane.YAxisList.Add(yAxis2);
+
+
+            YAxis yAxis3 = new YAxis("AD3");
+            Data.MyPane.YAxisList.Add(yAxis3);
+
+
+
+            YAxis yAxis4 = new YAxis("AD4");
+            Data.MyPane.YAxisList.Add(yAxis4);
+
+            var text2 = new TextObj("钻压", -0.2, 1.01, CoordType.ChartFraction,
+     AlignH.Left, AlignV.Top);
+            text2.ZOrder = ZOrder.A_InFront;
+
+            zedGraphControl1.GraphPane.GraphObjList.Add(text2);
 
         }
 
@@ -388,7 +470,7 @@ namespace 破岩UI_ForHY
                 }
                 else
                 {
-                    MyLog.Error("单元测试仪未连接！");
+                    MyLog.Error("设备未连接，请检查接线，打开电源！");
                 }
 
             }
@@ -469,26 +551,26 @@ namespace 破岩UI_ForHY
                         midDT = endDT;
                         double tempMB = Recv4KCounts / 256;
                         Recv4KCounts = 0;
-                        myMonitor.textBox_speed.BeginInvoke(new Action(() =>
-                        {
-                            double speed = tempMB / tempTime;
-                            myMonitor.textBox_speed.Text = speed.ToString();
-                            myMonitor.progressBar1.Value = (int)speed;
-                        }));
+                        //myMonitor.textBox_speed.BeginInvoke(new Action(() =>
+                        //{
+                        //    double speed = tempMB / tempTime;
+                        //    myMonitor.textBox_speed.Text = speed.ToString();
+                        //    myMonitor.progressBar1.Value = (int)speed;
+                        //}));
                     }
                 }
             }
             endDT = DateTime.Now;
 
-            myMonitor.textBox_time.BeginInvoke(
-                new Action(() =>
-                {
-                    double costTime = endDT.Subtract(startDT).TotalSeconds;
-                    double RecvdM = RecvdMB / 1024;
-                    myMonitor.textBox_time.Text = costTime.ToString();
-                    myMonitor.textBox_recvsize.Text = RecvdM.ToString();
-                    myMonitor.textBox_avspeed.Text = (RecvdM / costTime).ToString();
-                }));
+            //myMonitor.textBox_time.BeginInvoke(
+            //    new Action(() =>
+            //    {
+            //        double costTime = endDT.Subtract(startDT).TotalSeconds;
+            //        double RecvdM = RecvdMB / 1024;
+            //        myMonitor.textBox_time.Text = costTime.ToString();
+            //        myMonitor.textBox_recvsize.Text = RecvdM.ToString();
+            //        myMonitor.textBox_avspeed.Text = (RecvdM / costTime).ToString();
+            //    }));
 
         }
 
@@ -655,7 +737,7 @@ namespace 破岩UI_ForHY
                     if (Data.SERList02.Count >= 9)
                     {
                         byte[] ret = Data.SERList02.Skip(3).Take(4).ToArray();
-                        float temp = BitConverter.ToSingle(ret, 0);            
+                        float temp = BitConverter.ToSingle(ret, 0);
 
                         if (Data.SERList02[1] == 0x31)
                         {
@@ -828,26 +910,37 @@ namespace 破岩UI_ForHY
 
                 for (int i = 0; i < 8; i++)
                 {
-                    Data.dt_AD01.Rows[i]["测量值"] = Data.daRe_AD01[i];
+                    dt_AD.Rows[i]["测量值"] = Data.daRe_AD01[i];
 
-                    Data.dt_AD01.Rows[i + 8]["测量值"] = Data.daRe_AD02[i];
+                    dt_AD.Rows[i + 8]["测量值"] = Data.daRe_AD02[i];
 
                     Data.MyPane.CurveList[i].AddPoint(Data.PaneCount, Data.daRe_AD01[i]);
                     Data.MyPane.CurveList[i + 8].AddPoint(Data.PaneCount, Data.daRe_AD02[i]);
                 }
 
-                Data.dt_AD01.Rows[16]["测量值"] = Data.SER2_niuju_value;
-                Data.dt_AD01.Rows[17]["测量值"] = Data.SER3_niuju_value;
+                dt_AD.Rows[16]["测量值"] = Data.SER2_niuju_value;
+                dt_AD.Rows[17]["测量值"] = Data.SER3_niuju_value;
 
                 Data.PaneCount++;
 
-
+                if (Chart60Tag)
+                {
+                    Data.MyPane.XAxis.Scale.Max = Data.PaneCount;
+                    Data.MyPane.XAxis.Scale.Min = Data.PaneCount - 60;
+                }
+                else
+                {
+                    Data.MyPane.XAxis.Scale.MaxAuto = true;
+                    Data.MyPane.XAxis.Scale.Min = 0;
+                }
+                zedGraphControl1.AxisChange();
+                zedGraphControl1.Invalidate();
             }
         }
 
         private void 实时速率ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(myMonitor!=null)
+            if (myMonitor != null)
             {
                 myMonitor.Activate();
             }
@@ -856,6 +949,43 @@ namespace 破岩UI_ForHY
                 myMonitor = new Monitor();
             }
             myMonitor.ShowDialog();
+        }
+
+        private void 显示最近60sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            显示最近60sToolStripMenuItem.Checked = true;
+            全部显示ToolStripMenuItem.Checked = false;
+            Chart60Tag = true;
+
+        }
+
+        private void 全部显示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            全部显示ToolStripMenuItem.Checked = true;
+            显示最近60sToolStripMenuItem.Checked = false;
+            Chart60Tag = false;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            RecvTag = false;
+            Thread.Sleep(500);
+            Environment.Exit(0);
+
+        }
+
+        private void 数据查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (myQueryForm != null)
+            {
+                myQueryForm.Activate();
+            }
+            else
+            {
+                myQueryForm = new 数据查询();
+            }
+            myQueryForm.ShowDialog();
         }
     }
 }

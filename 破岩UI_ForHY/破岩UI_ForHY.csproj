@@ -58,8 +58,12 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZedGraph">
-      <HintPath>..\ZedGraph_Control_Test\ZedGraph_Control_Test\ZedGraph.dll</HintPath>
+    <Reference Include="ZedGraph, Version=1.0.1812.29779, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\zedgraph_dll_v515\zedgraph_dll_v5.1.5\ZedGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph.resources">
+      <HintPath>..\zedgraph_dll_v515\zedgraph_dll_v5.1.5\zh-cn\ZedGraph.resources.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +87,12 @@
     <Compile Include="Register.cs" />
     <Compile Include="SaveFile.cs" />
     <Compile Include="USB.cs" />
+    <Compile Include="数据查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="数据查询.Designer.cs">
+      <DependentUpon>数据查询.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +110,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="数据查询.resx">
+      <DependentUpon>数据查询.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

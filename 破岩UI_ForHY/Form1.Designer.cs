@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,12 +44,10 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.实时速率ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.aquaGauge1 = new AquaControls.AquaGauge();
-            this.aquaGauge2 = new AquaControls.AquaGauge();
-            this.aquaGauge3 = new AquaControls.AquaGauge();
             this.panel2 = new System.Windows.Forms.Panel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
@@ -56,6 +55,12 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -72,21 +77,19 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.数据查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.实时速率ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aquaGauge3 = new AquaControls.AquaGauge();
+            this.aquaGauge2 = new AquaControls.AquaGauge();
+            this.aquaGauge1 = new AquaControls.AquaGauge();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.图表显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.显示最近60sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.全部显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -94,10 +97,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -106,6 +105,10 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -138,6 +141,24 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1093, 535);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
+            this.zedGraphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zedGraphControl1.IsAutoScrollRange = true;
+            this.zedGraphControl1.IsShowPointValues = true;
+            this.zedGraphControl1.Location = new System.Drawing.Point(410, 3);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.ScrollGrace = 0D;
+            this.zedGraphControl1.ScrollMaxX = 0D;
+            this.zedGraphControl1.ScrollMaxY = 0D;
+            this.zedGraphControl1.ScrollMaxY2 = 0D;
+            this.zedGraphControl1.ScrollMinX = 0D;
+            this.zedGraphControl1.ScrollMinY = 0D;
+            this.zedGraphControl1.ScrollMinY2 = 0D;
+            this.zedGraphControl1.Size = new System.Drawing.Size(680, 529);
+            this.zedGraphControl1.TabIndex = 105;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
@@ -152,28 +173,28 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 15F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 15F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 15F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 15F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.Size = new System.Drawing.Size(401, 529);
             this.dataGridView1.TabIndex = 0;
@@ -195,9 +216,9 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "测量值";
-            dataGridViewCellStyle5.Format = "N3";
-            dataGridViewCellStyle5.NullValue = "0.000";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "N3";
+            dataGridViewCellStyle1.NullValue = "0.000";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "测量值";
             this.Column3.Name = "Column3";
             this.Column3.Width = 70;
@@ -221,7 +242,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.开始ToolStripMenuItem,
             this.数据查询ToolStripMenuItem,
-            this.实时速率ToolStripMenuItem});
+            this.实时速率ToolStripMenuItem,
+            this.图表显示ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1334, 25);
@@ -234,6 +256,20 @@
             this.开始ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.开始ToolStripMenuItem.Text = "开始";
             this.开始ToolStripMenuItem.Click += new System.EventHandler(this.开始ToolStripMenuItem_Click);
+            // 
+            // 数据查询ToolStripMenuItem
+            // 
+            this.数据查询ToolStripMenuItem.Name = "数据查询ToolStripMenuItem";
+            this.数据查询ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.数据查询ToolStripMenuItem.Text = "数据查询";
+            this.数据查询ToolStripMenuItem.Click += new System.EventHandler(this.数据查询ToolStripMenuItem_Click);
+            // 
+            // 实时速率ToolStripMenuItem
+            // 
+            this.实时速率ToolStripMenuItem.Name = "实时速率ToolStripMenuItem";
+            this.实时速率ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.实时速率ToolStripMenuItem.Text = "实时速率";
+            this.实时速率ToolStripMenuItem.Click += new System.EventHandler(this.实时速率ToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -276,81 +312,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(1334, 675);
             this.splitContainer1.SplitterDistance = 136;
             this.splitContainer1.TabIndex = 4;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(1334, 535);
-            this.splitContainer2.SplitterDistance = 1093;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // aquaGauge1
-            // 
-            this.aquaGauge1.BackColor = System.Drawing.Color.Transparent;
-            this.aquaGauge1.DialColor = System.Drawing.Color.LightSteelBlue;
-            this.aquaGauge1.DialText = "kN";
-            this.aquaGauge1.Glossiness = 11.36364F;
-            this.aquaGauge1.Location = new System.Drawing.Point(615, 0);
-            this.aquaGauge1.Margin = new System.Windows.Forms.Padding(4);
-            this.aquaGauge1.MaxValue = 100F;
-            this.aquaGauge1.MinValue = 0F;
-            this.aquaGauge1.Name = "aquaGauge1";
-            this.aquaGauge1.NoOfDivisions = 5;
-            this.aquaGauge1.NoOfSubDivisions = 10;
-            this.aquaGauge1.RecommendedValue = 10F;
-            this.aquaGauge1.Size = new System.Drawing.Size(136, 136);
-            this.aquaGauge1.TabIndex = 8;
-            this.aquaGauge1.ThresholdPercent = 50F;
-            this.aquaGauge1.Value = 32F;
-            // 
-            // aquaGauge2
-            // 
-            this.aquaGauge2.BackColor = System.Drawing.Color.Transparent;
-            this.aquaGauge2.DialColor = System.Drawing.Color.LightSteelBlue;
-            this.aquaGauge2.DialText = "主轴转速(rpm)";
-            this.aquaGauge2.Glossiness = 11.36364F;
-            this.aquaGauge2.Location = new System.Drawing.Point(759, 0);
-            this.aquaGauge2.Margin = new System.Windows.Forms.Padding(4);
-            this.aquaGauge2.MaxValue = 100F;
-            this.aquaGauge2.MinValue = 0F;
-            this.aquaGauge2.Name = "aquaGauge2";
-            this.aquaGauge2.NoOfDivisions = 5;
-            this.aquaGauge2.NoOfSubDivisions = 10;
-            this.aquaGauge2.RecommendedValue = 10F;
-            this.aquaGauge2.Size = new System.Drawing.Size(136, 136);
-            this.aquaGauge2.TabIndex = 9;
-            this.aquaGauge2.ThresholdPercent = 50F;
-            this.aquaGauge2.Value = 32F;
-            // 
-            // aquaGauge3
-            // 
-            this.aquaGauge3.BackColor = System.Drawing.Color.Transparent;
-            this.aquaGauge3.DialColor = System.Drawing.Color.LightSteelBlue;
-            this.aquaGauge3.DialText = "中心轴转速(rpm)";
-            this.aquaGauge3.Glossiness = 11.36364F;
-            this.aquaGauge3.Location = new System.Drawing.Point(903, 0);
-            this.aquaGauge3.Margin = new System.Windows.Forms.Padding(4);
-            this.aquaGauge3.MaxValue = 100F;
-            this.aquaGauge3.MinValue = 0F;
-            this.aquaGauge3.Name = "aquaGauge3";
-            this.aquaGauge3.NoOfDivisions = 5;
-            this.aquaGauge3.NoOfSubDivisions = 10;
-            this.aquaGauge3.RecommendedValue = 10F;
-            this.aquaGauge3.Size = new System.Drawing.Size(136, 136);
-            this.aquaGauge3.TabIndex = 10;
-            this.aquaGauge3.ThresholdPercent = 50F;
-            this.aquaGauge3.Value = 32F;
             // 
             // panel2
             // 
@@ -431,6 +392,72 @@
             this.button10.Text = "压力设定";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label33.Location = new System.Drawing.Point(1181, 109);
+            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(82, 15);
+            this.label33.TabIndex = 18;
+            this.label33.Text = "低油位报警";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label31.Location = new System.Drawing.Point(1181, 75);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(82, 15);
+            this.label31.TabIndex = 19;
+            this.label31.Text = "低油温报警";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label29.Location = new System.Drawing.Point(1181, 37);
+            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(97, 15);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "回油滤油报警";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label32.Location = new System.Drawing.Point(1042, 109);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(82, 15);
+            this.label32.TabIndex = 21;
+            this.label32.Text = "高油位报警";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label30.Location = new System.Drawing.Point(1042, 75);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(82, 15);
+            this.label30.TabIndex = 22;
+            this.label30.Text = "高油温报警";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label28.Location = new System.Drawing.Point(1042, 37);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(97, 15);
+            this.label28.TabIndex = 23;
+            this.label28.Text = "高压滤油报警";
             // 
             // panel3
             // 
@@ -624,84 +651,105 @@
             this.button28.UseVisualStyleBackColor = true;
             this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
-            // label33
+            // aquaGauge3
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label33.Location = new System.Drawing.Point(1181, 109);
-            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(82, 15);
-            this.label33.TabIndex = 18;
-            this.label33.Text = "低油位报警";
+            this.aquaGauge3.BackColor = System.Drawing.Color.Transparent;
+            this.aquaGauge3.DialColor = System.Drawing.Color.LightSteelBlue;
+            this.aquaGauge3.DialText = "中心轴转速(rpm)";
+            this.aquaGauge3.Glossiness = 11.36364F;
+            this.aquaGauge3.Location = new System.Drawing.Point(903, 0);
+            this.aquaGauge3.Margin = new System.Windows.Forms.Padding(4);
+            this.aquaGauge3.MaxValue = 100F;
+            this.aquaGauge3.MinValue = 0F;
+            this.aquaGauge3.Name = "aquaGauge3";
+            this.aquaGauge3.NoOfDivisions = 5;
+            this.aquaGauge3.NoOfSubDivisions = 10;
+            this.aquaGauge3.RecommendedValue = 10F;
+            this.aquaGauge3.Size = new System.Drawing.Size(136, 136);
+            this.aquaGauge3.TabIndex = 10;
+            this.aquaGauge3.ThresholdPercent = 50F;
+            this.aquaGauge3.Value = 32F;
             // 
-            // label31
+            // aquaGauge2
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label31.Location = new System.Drawing.Point(1181, 75);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(82, 15);
-            this.label31.TabIndex = 19;
-            this.label31.Text = "低油温报警";
+            this.aquaGauge2.BackColor = System.Drawing.Color.Transparent;
+            this.aquaGauge2.DialColor = System.Drawing.Color.LightSteelBlue;
+            this.aquaGauge2.DialText = "主轴转速(rpm)";
+            this.aquaGauge2.Glossiness = 11.36364F;
+            this.aquaGauge2.Location = new System.Drawing.Point(759, 0);
+            this.aquaGauge2.Margin = new System.Windows.Forms.Padding(4);
+            this.aquaGauge2.MaxValue = 100F;
+            this.aquaGauge2.MinValue = 0F;
+            this.aquaGauge2.Name = "aquaGauge2";
+            this.aquaGauge2.NoOfDivisions = 5;
+            this.aquaGauge2.NoOfSubDivisions = 10;
+            this.aquaGauge2.RecommendedValue = 10F;
+            this.aquaGauge2.Size = new System.Drawing.Size(136, 136);
+            this.aquaGauge2.TabIndex = 9;
+            this.aquaGauge2.ThresholdPercent = 50F;
+            this.aquaGauge2.Value = 32F;
             // 
-            // label29
+            // aquaGauge1
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label29.Location = new System.Drawing.Point(1181, 37);
-            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(97, 15);
-            this.label29.TabIndex = 20;
-            this.label29.Text = "回油滤油报警";
+            this.aquaGauge1.BackColor = System.Drawing.Color.Transparent;
+            this.aquaGauge1.DialColor = System.Drawing.Color.LightSteelBlue;
+            this.aquaGauge1.DialText = "kN";
+            this.aquaGauge1.Glossiness = 11.36364F;
+            this.aquaGauge1.Location = new System.Drawing.Point(615, 0);
+            this.aquaGauge1.Margin = new System.Windows.Forms.Padding(4);
+            this.aquaGauge1.MaxValue = 100F;
+            this.aquaGauge1.MinValue = 0F;
+            this.aquaGauge1.Name = "aquaGauge1";
+            this.aquaGauge1.NoOfDivisions = 5;
+            this.aquaGauge1.NoOfSubDivisions = 10;
+            this.aquaGauge1.RecommendedValue = 10F;
+            this.aquaGauge1.Size = new System.Drawing.Size(136, 136);
+            this.aquaGauge1.TabIndex = 8;
+            this.aquaGauge1.ThresholdPercent = 50F;
+            this.aquaGauge1.Value = 32F;
             // 
-            // label32
+            // splitContainer2
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label32.Location = new System.Drawing.Point(1042, 109);
-            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(82, 15);
-            this.label32.TabIndex = 21;
-            this.label32.Text = "高油位报警";
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
             // 
-            // label30
+            // splitContainer2.Panel1
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(1042, 75);
-            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(82, 15);
-            this.label30.TabIndex = 22;
-            this.label30.Text = "高油温报警";
+            this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel2);
             // 
-            // label28
+            // splitContainer2.Panel2
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label28.Location = new System.Drawing.Point(1042, 37);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(97, 15);
-            this.label28.TabIndex = 23;
-            this.label28.Text = "高压滤油报警";
+            this.splitContainer2.Panel2.Controls.Add(this.richTextBox1);
+            this.splitContainer2.Size = new System.Drawing.Size(1334, 535);
+            this.splitContainer2.SplitterDistance = 1093;
+            this.splitContainer2.TabIndex = 0;
             // 
-            // 数据查询ToolStripMenuItem
+            // 图表显示ToolStripMenuItem
             // 
-            this.数据查询ToolStripMenuItem.Name = "数据查询ToolStripMenuItem";
-            this.数据查询ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.数据查询ToolStripMenuItem.Text = "数据查询";
+            this.图表显示ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.显示最近60sToolStripMenuItem,
+            this.全部显示ToolStripMenuItem});
+            this.图表显示ToolStripMenuItem.Name = "图表显示ToolStripMenuItem";
+            this.图表显示ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.图表显示ToolStripMenuItem.Text = "图表显示";
             // 
-            // 实时速率ToolStripMenuItem
+            // 显示最近60sToolStripMenuItem
             // 
-            this.实时速率ToolStripMenuItem.Name = "实时速率ToolStripMenuItem";
-            this.实时速率ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.实时速率ToolStripMenuItem.Text = "实时速率";
-            this.实时速率ToolStripMenuItem.Click += new System.EventHandler(this.实时速率ToolStripMenuItem_Click);
+            this.显示最近60sToolStripMenuItem.Checked = true;
+            this.显示最近60sToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.显示最近60sToolStripMenuItem.Name = "显示最近60sToolStripMenuItem";
+            this.显示最近60sToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.显示最近60sToolStripMenuItem.Text = "显示60s";
+            this.显示最近60sToolStripMenuItem.Click += new System.EventHandler(this.显示最近60sToolStripMenuItem_Click);
+            // 
+            // 全部显示ToolStripMenuItem
+            // 
+            this.全部显示ToolStripMenuItem.Name = "全部显示ToolStripMenuItem";
+            this.全部显示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.全部显示ToolStripMenuItem.Text = "全部显示";
+            this.全部显示ToolStripMenuItem.Click += new System.EventHandler(this.全部显示ToolStripMenuItem_Click);
             // 
             // pictureBox7
             // 
@@ -763,17 +811,6 @@
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
-            // zedGraphControl1
-            // 
-            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
-            this.zedGraphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.zedGraphControl1.IsShowPointValues = true;
-            this.zedGraphControl1.Location = new System.Drawing.Point(410, 3);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.PointValueFormat = "G";
-            this.zedGraphControl1.Size = new System.Drawing.Size(680, 529);
-            this.zedGraphControl1.TabIndex = 105;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -784,6 +821,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -795,10 +833,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -810,6 +844,10 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -876,6 +914,9 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ToolStripMenuItem 数据查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 实时速率ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 图表显示ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 显示最近60sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 全部显示ToolStripMenuItem;
     }
 }
 
