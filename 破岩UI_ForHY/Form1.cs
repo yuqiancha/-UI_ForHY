@@ -127,7 +127,7 @@ namespace 破岩UI_ForHY
             dt_AD.Columns.Add("解析值", typeof(double));
             dt_AD.Columns.Add("单位", typeof(String));
 
-            for (int i = 0; i < 18; i++)
+            for (int i = 0; i < 19; i++)
             {
                 DataRow dr = dt_AD.NewRow();
                 dr["序号"] = i + 1;
@@ -173,16 +173,16 @@ namespace 破岩UI_ForHY
             //   myCurve.Symbol.Fill = new Fill(Color.White);
 
             myCurve = Data.MyPane.AddCurve("AD2", x, y, Color.Gold, SymbolType.Square);
-            myCurve.Symbol.Fill = new Fill(Color.White);
-            myCurve.YAxisIndex = 1;
+          //  myCurve.Symbol.Fill = new Fill(Color.White);
+        //    myCurve.YAxisIndex = 1;
 
             myCurve = Data.MyPane.AddCurve("AD3", x, y, Color.Green, SymbolType.Square);
-            myCurve.Symbol.Fill = new Fill(Color.White);
-            myCurve.YAxisIndex = 3;
+        //    myCurve.Symbol.Fill = new Fill(Color.White);
+        //    myCurve.YAxisIndex = 3;
 
             Data.MyPane.AddCurve("AD4", x, y, Color.Blue, SymbolType.Square);
-            myCurve.Symbol.Fill = new Fill(Color.White);
-            myCurve.YAxisIndex = 2;
+           // myCurve.Symbol.Fill = new Fill(Color.White);
+          //  myCurve.YAxisIndex = 2;
 
 
             Data.MyPane.AddCurve("AD5", x, y, Color.Red, SymbolType.Square);
@@ -200,23 +200,7 @@ namespace 破岩UI_ForHY
 
 
 
-            YAxis yAxis2 = new YAxis("AD2");
-            Data.MyPane.YAxisList.Add(yAxis2);
 
-
-            YAxis yAxis3 = new YAxis("AD3");
-            Data.MyPane.YAxisList.Add(yAxis3);
-
-
-
-            YAxis yAxis4 = new YAxis("AD4");
-            Data.MyPane.YAxisList.Add(yAxis4);
-
-            var text2 = new TextObj("钻压", -0.2, 1.01, CoordType.ChartFraction,
-     AlignH.Left, AlignV.Top);
-            text2.ZOrder = ZOrder.A_InFront;
-
-            zedGraphControl1.GraphPane.GraphObjList.Add(text2);
 
         }
 
@@ -598,9 +582,10 @@ namespace 破岩UI_ForHY
                 //FF08为短帧通道
                 byte[] bufsav = new byte[4092];
                 Array.Copy(buf_LongFrame, 4, bufsav, 0, 4092);
-                //SaveFile.Lock_2.EnterWriteLock();
-                //SaveFile.DataQueue_SC2.Enqueue(bufsav);
-                //SaveFile.Lock_2.ExitWriteLock();
+
+                SaveFile.Lock_2.EnterWriteLock();
+                SaveFile.DataQueue_SC2.Enqueue(bufsav);
+                SaveFile.Lock_2.ExitWriteLock();
 
                 for (int i = 0; i < 6; i++)
                 {
@@ -610,9 +595,9 @@ namespace 破岩UI_ForHY
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
 
-                        SaveFile.Lock_7.EnterWriteLock();
-                        SaveFile.DataQueue_SC7.Enqueue(buf1D0x);
-                        SaveFile.Lock_7.ExitWriteLock();
+                        SaveFile.Lock_3.EnterWriteLock();
+                        SaveFile.DataQueue_SC3.Enqueue(buf1D0x);
+                        SaveFile.Lock_3.ExitWriteLock();
 
                         //    string temp = null;
                         //    for (int j = 0; j < num; j++) temp += buf1D0x[j].ToString("x2");
@@ -624,6 +609,10 @@ namespace 破岩UI_ForHY
                         int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
+
+                        SaveFile.Lock_4.EnterWriteLock();
+                        SaveFile.DataQueue_SC4.Enqueue(buf1D0x);
+                        SaveFile.Lock_4.ExitWriteLock();
 
                         lock (Data.SERList01)
                         {
@@ -637,6 +626,10 @@ namespace 破岩UI_ForHY
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
 
+                        SaveFile.Lock_5.EnterWriteLock();
+                        SaveFile.DataQueue_SC5.Enqueue(buf1D0x);
+                        SaveFile.Lock_5.ExitWriteLock();
+
                         lock (Data.SERList02)
                         {
                             Data.SERList02.AddRange(buf1D0x);
@@ -648,6 +641,10 @@ namespace 破岩UI_ForHY
                         int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
+
+                        SaveFile.Lock_6.EnterWriteLock();
+                        SaveFile.DataQueue_SC6.Enqueue(buf1D0x);
+                        SaveFile.Lock_6.ExitWriteLock();
 
                         lock (Data.SERList03)
                         {
@@ -661,9 +658,9 @@ namespace 破岩UI_ForHY
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
 
-                        //SaveFile.Lock_13.EnterWriteLock();
-                        //SaveFile.DataQueue_SC13.Enqueue(buf1D0x);
-                        //SaveFile.Lock_13.ExitWriteLock();
+                        //SaveFile.Lock_7.EnterWriteLock();
+                        //SaveFile.DataQueue_SC7.Enqueue(buf1D0x);
+                        //SaveFile.Lock_7.ExitWriteLock();
 
                         lock (Data.ADList01)
                         {
@@ -677,9 +674,11 @@ namespace 破岩UI_ForHY
                         int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
-                        //SaveFile.Lock_14.EnterWriteLock();
-                        //SaveFile.DataQueue_SC14.Enqueue(buf1D0x);
-                        //SaveFile.Lock_14.ExitWriteLock();
+
+                        //SaveFile.Lock_8.EnterWriteLock();
+                        //SaveFile.DataQueue_SC8.Enqueue(buf1D0x);
+                        //SaveFile.Lock_8.ExitWriteLock();
+
                         lock (Data.ADList02)
                         {
                             Data.ADList02.AddRange(buf1D0x);
@@ -817,6 +816,40 @@ namespace 破岩UI_ForHY
                         {
                             buf[t] = Data.ADList01[t];
                         }
+
+
+                        SaveFile.Lock_9.EnterWriteLock();
+                        SaveFile.DataQueue_SC9.Enqueue(buf.Skip(0).Take(2).ToArray());
+                        SaveFile.Lock_9.ExitWriteLock();
+
+                        SaveFile.Lock_10.EnterWriteLock();
+                        SaveFile.DataQueue_SC10.Enqueue(buf.Skip(2).Take(2).ToArray());
+                        SaveFile.Lock_10.ExitWriteLock();
+
+                        SaveFile.Lock_11.EnterWriteLock();
+                        SaveFile.DataQueue_SC11.Enqueue(buf.Skip(4).Take(2).ToArray());
+                        SaveFile.Lock_11.ExitWriteLock();
+
+                        SaveFile.Lock_12.EnterWriteLock();
+                        SaveFile.DataQueue_SC12.Enqueue(buf.Skip(6).Take(2).ToArray());
+                        SaveFile.Lock_12.ExitWriteLock();
+
+                        SaveFile.Lock_13.EnterWriteLock();
+                        SaveFile.DataQueue_SC13.Enqueue(buf.Skip(8).Take(2).ToArray());
+                        SaveFile.Lock_13.ExitWriteLock();
+
+                        SaveFile.Lock_14.EnterWriteLock();
+                        SaveFile.DataQueue_SC14.Enqueue(buf.Skip(10).Take(2).ToArray());
+                        SaveFile.Lock_14.ExitWriteLock();
+
+                        SaveFile.Lock_15.EnterWriteLock();
+                        SaveFile.DataQueue_SC15.Enqueue(buf.Skip(12).Take(2).ToArray());
+                        SaveFile.Lock_15.ExitWriteLock();
+
+                        SaveFile.Lock_16.EnterWriteLock();
+                        SaveFile.DataQueue_SC16.Enqueue(buf.Skip(14).Take(2).ToArray());
+                        SaveFile.Lock_16.ExitWriteLock();
+
                         for (int k = 0; k < 8; k++)
                         {
                             int temp = (buf[2 * k] & 0x7f) * 256 + buf[2 * k + 1];
@@ -825,6 +858,7 @@ namespace 破岩UI_ForHY
                             {
                                 temp = 0x8000 - temp;
                             }
+
                             double value = temp;
                             value = 10 * (value / 32767);
                             if ((buf[2 * k] & 0x80) == 0x80)
@@ -854,6 +888,39 @@ namespace 破岩UI_ForHY
                         {
                             buf[t] = Data.ADList02[t];
                         }
+
+                        SaveFile.Lock_17.EnterWriteLock();
+                        SaveFile.DataQueue_SC17.Enqueue(buf.Skip(0).Take(2).ToArray());
+                        SaveFile.Lock_17.ExitWriteLock();
+
+                        SaveFile.Lock_18.EnterWriteLock();
+                        SaveFile.DataQueue_SC18.Enqueue(buf.Skip(2).Take(2).ToArray());
+                        SaveFile.Lock_18.ExitWriteLock();
+
+                        SaveFile.Lock_19.EnterWriteLock();
+                        SaveFile.DataQueue_SC19.Enqueue(buf.Skip(4).Take(2).ToArray());
+                        SaveFile.Lock_19.ExitWriteLock();
+
+                        SaveFile.Lock_20.EnterWriteLock();
+                        SaveFile.DataQueue_SC20.Enqueue(buf.Skip(6).Take(2).ToArray());
+                        SaveFile.Lock_20.ExitWriteLock();
+
+                        SaveFile.Lock_21.EnterWriteLock();
+                        SaveFile.DataQueue_SC21.Enqueue(buf.Skip(8).Take(2).ToArray());
+                        SaveFile.Lock_21.ExitWriteLock();
+
+                        SaveFile.Lock_22.EnterWriteLock();
+                        SaveFile.DataQueue_SC22.Enqueue(buf.Skip(10).Take(2).ToArray());
+                        SaveFile.Lock_22.ExitWriteLock();
+
+                        SaveFile.Lock_23.EnterWriteLock();
+                        SaveFile.DataQueue_SC23.Enqueue(buf.Skip(12).Take(2).ToArray());
+                        SaveFile.Lock_23.ExitWriteLock();
+
+                        SaveFile.Lock_24.EnterWriteLock();
+                        SaveFile.DataQueue_SC24.Enqueue(buf.Skip(14).Take(2).ToArray());
+                        SaveFile.Lock_24.ExitWriteLock();
+
                         for (int k = 0; k < 8; k++)
                         {
                             int temp = (buf[2 * k] & 0x7f) * 256 + buf[2 * k + 1];
@@ -907,7 +974,8 @@ namespace 破岩UI_ForHY
 
                 this.aquaGauge3.Value = Data.SER3_speed_value;
 
-
+                double LenValue = Data.daRe_AD02[0] - (double)dt_AD.Rows[8]["测量值"];
+                dt_AD.Rows[18]["测量值"] = LenValue *2*60;//0.5s间隔，单位是1min
                 for (int i = 0; i < 8; i++)
                 {
                     dt_AD.Rows[i]["测量值"] = Data.daRe_AD01[i];
@@ -920,6 +988,8 @@ namespace 破岩UI_ForHY
 
                 dt_AD.Rows[16]["测量值"] = Data.SER2_niuju_value;
                 dt_AD.Rows[17]["测量值"] = Data.SER3_niuju_value;
+
+               
 
                 Data.PaneCount++;
 

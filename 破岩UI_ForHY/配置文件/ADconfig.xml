@@ -7,7 +7,7 @@
   <add key="AD_Channel_4" value="1" name="加速度X" dw="g"/>
   <add key="AD_Channel_5" value="1" name="加速度Y" dw="g"/>
   <add key="AD_Channel_6" value="1" name="加速度Z" dw="g"/>
-  <add key="AD_Channel_7" value="1" name="保留" dw="null"/>
+  <add key="AD_Channel_7" value="1" name="保留1" dw="null"/>
   <add key="AD_Channel_8" value="1" name="进尺" dw="mm"/>
   <add key="AD_Channel_9" value="1" name="钻头振幅" dw="mm"/>
   <add key="AD_Channel_10" value="1" name="循环压力" dw="MPa"/>
@@ -15,9 +15,10 @@
   <add key="AD_Channel_12" value="1" name="油泵压力" dw="MPa"/>
   <add key="AD_Channel_13" value="1" name="油温" dw="℃"/>
   <add key="AD_Channel_14" value="1" name="液位" dw="null"/>
-  <add key="AD_Channel_15" value="1" name="保留" dw="null"/>
+  <add key="AD_Channel_15" value="1" name="保留2" dw="null"/>
 
   <add key="AD_Channel_16" value="1" name="主轴扭矩" dw="N·m"/>
   <add key="AD_Channel_17" value="1" name="中心轴扭矩" dw="N·m"/>
   
+  <add key="AD_Channel_18" value="1" name="钻速" dw="mm/min"/>
 </configuration>

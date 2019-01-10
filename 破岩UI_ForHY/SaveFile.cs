@@ -10,8 +10,8 @@ namespace 破岩UI_ForHY
 {
     class SaveFile
     {
-        public static ReaderWriterLockSlim Lock = new ReaderWriterLockSlim();
-        public static ReaderWriterLockSlim Lock_Async = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_0 = new ReaderWriterLockSlim();
+
         public static ReaderWriterLockSlim Lock_1 = new ReaderWriterLockSlim();
         public static ReaderWriterLockSlim Lock_2 = new ReaderWriterLockSlim();
         public static ReaderWriterLockSlim Lock_3 = new ReaderWriterLockSlim();
@@ -28,8 +28,19 @@ namespace 破岩UI_ForHY
         public static ReaderWriterLockSlim Lock_14 = new ReaderWriterLockSlim();
         public static ReaderWriterLockSlim Lock_15 = new ReaderWriterLockSlim();
         public static ReaderWriterLockSlim Lock_16 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_17 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_18 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_19 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_20 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_21 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_22 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_23 = new ReaderWriterLockSlim();
+        public static ReaderWriterLockSlim Lock_24 = new ReaderWriterLockSlim();
+
+
         public static List<ReaderWriterLockSlim> myLock = new List<ReaderWriterLockSlim>();
 
+        public static ReaderWriterLockSlim Lock_Async = new ReaderWriterLockSlim();
         public static ReaderWriterLockSlim Lock_asyn_1 = new ReaderWriterLockSlim();
         public static ReaderWriterLockSlim Lock_asyn_2 = new ReaderWriterLockSlim();
         public static ReaderWriterLockSlim Lock_asyn_3 = new ReaderWriterLockSlim();
@@ -47,7 +58,7 @@ namespace 破岩UI_ForHY
         public static List<ReaderWriterLockSlim> myLockforAsync = new List<ReaderWriterLockSlim>();
         //在网络收发线程中给DataQueue赋值
 
-        public static Queue<byte[]> DataQueue_0 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC0 = new Queue<byte[]>();
         public static Queue<byte[]> DataQueue_SC1 = new Queue<byte[]>();
         public static Queue<byte[]> DataQueue_SC2 = new Queue<byte[]>();
         public static Queue<byte[]> DataQueue_SC3 = new Queue<byte[]>();
@@ -64,6 +75,16 @@ namespace 破岩UI_ForHY
         public static Queue<byte[]> DataQueue_SC14 = new Queue<byte[]>();
         public static Queue<byte[]> DataQueue_SC15 = new Queue<byte[]>();
         public static Queue<byte[]> DataQueue_SC16 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC17 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC18 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC19 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC20 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC21 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC22 = new Queue<byte[]>();
+
+        public static Queue<byte[]> DataQueue_SC23 = new Queue<byte[]>();
+        public static Queue<byte[]> DataQueue_SC24 = new Queue<byte[]>();
+
 
         public static Queue<byte[]> DataQueue_Async = new Queue<byte[]>();
 
@@ -72,10 +93,12 @@ namespace 破岩UI_ForHY
         public static bool SaveOn = true;
 
         FileStream file0, file_async;
-        FileStream file_SC1, file_SC2, file_SC3, file_SC4,
+        FileStream file_SC0,file_SC1, file_SC2, file_SC3, file_SC4,
             file_SC5, file_SC6, file_SC7, file_SC8,
             file_SC9, file_SC10, file_SC11, file_SC12,
-            file_SC13, file_SC14, file_SC15, file_SC16;
+            file_SC13, file_SC14, file_SC15, file_SC16,
+             file_SC17, file_SC18, file_SC19, file_SC20,
+             file_SC21, file_SC22,file_SC23,file_SC24;
         List<FileStream> myFileList_dat = new List<FileStream>();
 
         FileStream file_asyn1, file_asyn2, file_asyn3, file_asyn4, file_asyn5, file_asyn6,
@@ -111,6 +134,9 @@ namespace 破岩UI_ForHY
             string Save_path = Program.GetStartupPath() + @"SaveData\";
             //    FileCreateDat(Program.GetStartupPath() + @"源码\", out file0);
 
+
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\保留0\", out file_SC0);
+
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\源码\", out file_SC1);
 
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\", out file_SC2);
@@ -119,24 +145,31 @@ namespace 破岩UI_ForHY
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF03\", out file_SC5);
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF04\", out file_SC6);
 
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D00(指令回令)\", out file_SC7);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D01(被动遥测RS422)\", out file_SC8);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D02(KA模拟器返回)\", out file_SC9);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D03(KD模拟器返回)\", out file_SC10);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D04(12所模拟器)\", out file_SC11);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D05(电源遥测)\", out file_SC12);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D06(AD通道0-7)\", out file_SC13);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D07(AD通道8-15)\", out file_SC14);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D07\", out file_SC7);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D08\", out file_SC8);
 
-            //FileCreateDat(Program.GetStartupPath() + @"数传机箱数据\同步422数据\通道2\", out file_SC11);
-            //FileCreateDat(Program.GetStartupPath() + @"数传机箱数据\FF08\", out file_SC12);
-            //FileCreateDat(Program.GetStartupPath() + @"数传数据\通道13\", out file_SC13);
-            //FileCreateDat(Program.GetStartupPath() + @"数传数据\通道14\", out file_SC14);
-            //FileCreateDat(Program.GetStartupPath() + @"数传数据\通道15\", out file_SC15);
-            //FileCreateDat(Program.GetStartupPath() + @"数传数据\通道16\", out file_SC16);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\钻头冲击力\", out file_SC9);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\钻头加速度X\", out file_SC10);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\钻头加速度Y\", out file_SC11);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\钻头加速度Z\", out file_SC12);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\加速度X\", out file_SC13);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\加速度Y\", out file_SC14);
+
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\加速度Z\", out file_SC15);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\保留1\", out file_SC16);
+
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\进尺\", out file_SC17);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\钻头振幅\", out file_SC18);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\循环压力\", out file_SC19);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\循环流量\", out file_SC20);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\油泵压力\", out file_SC21);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\油温\", out file_SC22);
+
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\液位\", out file_SC23);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\AD\保留2\", out file_SC24);
 
             //FileCreateDat(Program.GetStartupPath() + @"异步422\", out file_async);
-
+            DataQueueList.Add(DataQueue_SC0);
             DataQueueList.Add(DataQueue_SC1);
             DataQueueList.Add(DataQueue_SC2);
             DataQueueList.Add(DataQueue_SC3);
@@ -153,7 +186,14 @@ namespace 破岩UI_ForHY
             DataQueueList.Add(DataQueue_SC14);
             DataQueueList.Add(DataQueue_SC15);
             DataQueueList.Add(DataQueue_SC16);
-
+            DataQueueList.Add(DataQueue_SC17);
+            DataQueueList.Add(DataQueue_SC18);
+            DataQueueList.Add(DataQueue_SC19);
+            DataQueueList.Add(DataQueue_SC20);
+            DataQueueList.Add(DataQueue_SC21);
+            DataQueueList.Add(DataQueue_SC22);
+            DataQueueList.Add(DataQueue_SC23);
+            DataQueueList.Add(DataQueue_SC24);
 
             //FileCreateTxt(Program.GetStartupPath() + @"数传机箱数据\异步422接收\通道1\", out file_asyn1);
             //FileCreateTxt(Program.GetStartupPath() + @"数传机箱数据\异步422接收\通道2\", out file_asyn2);
@@ -181,6 +221,7 @@ namespace 破岩UI_ForHY
             DataQueue_asynList.Add(DataQueue_asyn_GNC1);
             DataQueue_asynList.Add(DataQueue_asyn_GNC2);
 
+            myLock.Add(Lock_0);
             myLock.Add(Lock_1);
             myLock.Add(Lock_2);
             myLock.Add(Lock_3);
@@ -197,7 +238,14 @@ namespace 破岩UI_ForHY
             myLock.Add(Lock_14);
             myLock.Add(Lock_15);
             myLock.Add(Lock_16);
-
+            myLock.Add(Lock_17);
+            myLock.Add(Lock_18);
+            myLock.Add(Lock_19);
+            myLock.Add(Lock_20);
+            myLock.Add(Lock_21);
+            myLock.Add(Lock_22);
+            myLock.Add(Lock_23);
+            myLock.Add(Lock_24);
             //          WriteFileThread = new Thread(WriteToFile);
             //           WriteFileThread.Start(file1);
         }
@@ -250,8 +298,9 @@ namespace 破岩UI_ForHY
             SaveOn = true;
 
             // new Thread(() => { WriteToFileSC(0, file0, ref DataQueue_0, ref Lock); }).Start();
-            new Thread(() => { WriteToFileSC(0, file_SC1, ref DataQueue_SC1, ref Lock_1); }).Start();
-            new Thread(() => { WriteToFileSC(1, file_SC2, ref DataQueue_SC2, ref Lock_2); }).Start();
+            new Thread(() => { WriteToFileSC(0, file_SC0, ref DataQueue_SC0, ref Lock_0); }).Start();
+            new Thread(() => { WriteToFileSC(1, file_SC1, ref DataQueue_SC1, ref Lock_1); }).Start();
+            new Thread(() => { WriteToFileSC(2, file_SC2, ref DataQueue_SC2, ref Lock_2); }).Start();
             new Thread(() => { WriteToFileSC(3, file_SC3, ref DataQueue_SC3, ref Lock_3); }).Start();
             new Thread(() => { WriteToFileSC(4, file_SC4, ref DataQueue_SC4, ref Lock_4); }).Start();
             new Thread(() => { WriteToFileSC(5, file_SC5, ref DataQueue_SC5, ref Lock_5); }).Start();
@@ -264,8 +313,17 @@ namespace 破岩UI_ForHY
             new Thread(() => { WriteToFileSC(12, file_SC12, ref DataQueue_SC12, ref Lock_12); }).Start();
             new Thread(() => { WriteToFileSC(13, file_SC13, ref DataQueue_SC13, ref Lock_13); }).Start();
             new Thread(() => { WriteToFileSC(14, file_SC14, ref DataQueue_SC14, ref Lock_14); }).Start();
-            //new Thread(() => { WriteToFileSC(15, file_SC15, ref DataQueue_SC15, ref Lock_15); }).Start();
-            //new Thread(() => { WriteToFileSC(16, file_SC16, ref DataQueue_SC16, ref Lock_16); }).Start();
+            new Thread(() => { WriteToFileSC(15, file_SC15, ref DataQueue_SC15, ref Lock_15); }).Start();
+            new Thread(() => { WriteToFileSC(16, file_SC16, ref DataQueue_SC16, ref Lock_16); }).Start();
+            new Thread(() => { WriteToFileSC(17, file_SC17, ref DataQueue_SC17, ref Lock_17); }).Start();
+            new Thread(() => { WriteToFileSC(18, file_SC18, ref DataQueue_SC18, ref Lock_18); }).Start();
+            new Thread(() => { WriteToFileSC(19, file_SC19, ref DataQueue_SC19, ref Lock_19); }).Start();
+            new Thread(() => { WriteToFileSC(20, file_SC20, ref DataQueue_SC20, ref Lock_20); }).Start();
+            new Thread(() => { WriteToFileSC(21, file_SC21, ref DataQueue_SC21, ref Lock_21); }).Start();
+            new Thread(() => { WriteToFileSC(22, file_SC22, ref DataQueue_SC22, ref Lock_22); }).Start();
+            new Thread(() => { WriteToFileSC(23, file_SC23, ref DataQueue_SC23, ref Lock_23); }).Start();
+            new Thread(() => { WriteToFileSC(24, file_SC24, ref DataQueue_SC24, ref Lock_24); }).Start();
+
 
             //new Thread(() => { WriteToFileSC(17, file_async, ref DataQueue_Async, ref Lock_Async); }).Start();
 
@@ -314,8 +372,8 @@ namespace 破岩UI_ForHY
                     try
                     {
                         myLock.EnterReadLock();
-                        //     bw.Write(myQueue.Dequeue());
-                        //     bw.Flush();
+                        bw.Write(myQueue.Dequeue());
+                        bw.Flush();
                         myLock.ExitReadLock();
 
                         #region 分割文件，防止文件过大
