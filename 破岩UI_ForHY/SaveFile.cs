@@ -140,10 +140,10 @@ namespace 破岩UI_ForHY
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\源码\", out file_SC1);
 
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\", out file_SC2);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF01\", out file_SC3);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF02\", out file_SC4);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF03\", out file_SC5);
-            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF04\", out file_SC6);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D00\", out file_SC3);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D01\", out file_SC4);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D02\", out file_SC5);
+            FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D03\", out file_SC6);
 
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D07\", out file_SC7);
             FileCreateDat(Program.GetStartupPath() + @"单元测试仪数据\FF08\1D08\", out file_SC8);

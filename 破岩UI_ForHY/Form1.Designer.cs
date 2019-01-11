@@ -46,6 +46,9 @@
             this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.实时速率ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图表显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.显示最近60sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.全部显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,6 +58,12 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -81,15 +90,6 @@
             this.aquaGauge2 = new AquaControls.AquaGauge();
             this.aquaGauge1 = new AquaControls.AquaGauge();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.图表显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.显示最近60sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.全部显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -99,6 +99,12 @@
             this.splitContainer1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -109,12 +115,6 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -143,7 +143,7 @@
             // 
             // zedGraphControl1
             // 
-            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
+            this.zedGraphControl1.BackColor = System.Drawing.Color.Black;
             this.zedGraphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zedGraphControl1.IsAutoScrollRange = true;
             this.zedGraphControl1.IsShowPointValues = true;
@@ -271,10 +271,35 @@
             this.实时速率ToolStripMenuItem.Text = "实时速率";
             this.实时速率ToolStripMenuItem.Click += new System.EventHandler(this.实时速率ToolStripMenuItem_Click);
             // 
+            // 图表显示ToolStripMenuItem
+            // 
+            this.图表显示ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.显示最近60sToolStripMenuItem,
+            this.全部显示ToolStripMenuItem});
+            this.图表显示ToolStripMenuItem.Name = "图表显示ToolStripMenuItem";
+            this.图表显示ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.图表显示ToolStripMenuItem.Text = "图表显示";
+            // 
+            // 显示最近60sToolStripMenuItem
+            // 
+            this.显示最近60sToolStripMenuItem.Checked = true;
+            this.显示最近60sToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.显示最近60sToolStripMenuItem.Name = "显示最近60sToolStripMenuItem";
+            this.显示最近60sToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.显示最近60sToolStripMenuItem.Text = "显示60s";
+            this.显示最近60sToolStripMenuItem.Click += new System.EventHandler(this.显示最近60sToolStripMenuItem_Click);
+            // 
+            // 全部显示ToolStripMenuItem
+            // 
+            this.全部显示ToolStripMenuItem.Name = "全部显示ToolStripMenuItem";
+            this.全部显示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.全部显示ToolStripMenuItem.Text = "全部显示";
+            this.全部显示ToolStripMenuItem.Click += new System.EventHandler(this.全部显示ToolStripMenuItem_Click);
+            // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 500;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // splitContainer1
@@ -392,6 +417,66 @@
             this.button10.Text = "压力设定";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox7.Location = new System.Drawing.Point(1276, 96);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(33, 27);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 24;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox5.Location = new System.Drawing.Point(1276, 63);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(33, 27);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 25;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox3.Location = new System.Drawing.Point(1276, 24);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(33, 27);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 26;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox6.Location = new System.Drawing.Point(1138, 96);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 27);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 27;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox4.Location = new System.Drawing.Point(1138, 63);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 27);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 28;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox2.Location = new System.Drawing.Point(1138, 24);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
             // 
             // label33
             // 
@@ -726,91 +811,6 @@
             this.splitContainer2.SplitterDistance = 1093;
             this.splitContainer2.TabIndex = 0;
             // 
-            // 图表显示ToolStripMenuItem
-            // 
-            this.图表显示ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.显示最近60sToolStripMenuItem,
-            this.全部显示ToolStripMenuItem});
-            this.图表显示ToolStripMenuItem.Name = "图表显示ToolStripMenuItem";
-            this.图表显示ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.图表显示ToolStripMenuItem.Text = "图表显示";
-            // 
-            // 显示最近60sToolStripMenuItem
-            // 
-            this.显示最近60sToolStripMenuItem.Checked = true;
-            this.显示最近60sToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.显示最近60sToolStripMenuItem.Name = "显示最近60sToolStripMenuItem";
-            this.显示最近60sToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.显示最近60sToolStripMenuItem.Text = "显示60s";
-            this.显示最近60sToolStripMenuItem.Click += new System.EventHandler(this.显示最近60sToolStripMenuItem_Click);
-            // 
-            // 全部显示ToolStripMenuItem
-            // 
-            this.全部显示ToolStripMenuItem.Name = "全部显示ToolStripMenuItem";
-            this.全部显示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.全部显示ToolStripMenuItem.Text = "全部显示";
-            this.全部显示ToolStripMenuItem.Click += new System.EventHandler(this.全部显示ToolStripMenuItem_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::破岩UI_ForHY.Properties.Resources.red;
-            this.pictureBox7.Location = new System.Drawing.Point(1276, 96);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(33, 27);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 24;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::破岩UI_ForHY.Properties.Resources.red;
-            this.pictureBox5.Location = new System.Drawing.Point(1276, 63);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(33, 27);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 25;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::破岩UI_ForHY.Properties.Resources.red;
-            this.pictureBox3.Location = new System.Drawing.Point(1276, 24);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(33, 27);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 26;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::破岩UI_ForHY.Properties.Resources.red;
-            this.pictureBox6.Location = new System.Drawing.Point(1138, 96);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 27;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::破岩UI_ForHY.Properties.Resources.red;
-            this.pictureBox4.Location = new System.Drawing.Point(1138, 63);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 28;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::破岩UI_ForHY.Properties.Resources.red;
-            this.pictureBox2.Location = new System.Drawing.Point(1138, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -836,6 +836,12 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
@@ -848,12 +854,6 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

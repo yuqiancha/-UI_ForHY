@@ -141,9 +141,11 @@ namespace 破岩UI_ForHY
             dataGridView1.DataSource = dt_AD;
             dataGridView1.AllowUserToAddRows = false;
 
-            SetDevice(false);
+            SetDevice(false);            
 
             Data.MyPane = zedGraphControl1.GraphPane;
+
+            Data.MyPane.Fill = new Fill(Color.Gray);
 
             Data.MyPane.Title.Text = "AD显示表";
 
@@ -315,7 +317,7 @@ namespace 破岩UI_ForHY
             if (lenth >= 0)
             {
                 string crc = Data.CRCCalc(Str_Content).Replace(" ", "").PadLeft(4, '0');
-                byte[] temp = StrToHexByte("1D00" + lenth.ToString("x4") + Str_Content + crc + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+                byte[] temp = StrToHexByte("1D000008" + Str_Content + crc + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
 
                 USB.SendData(Data.OnlyId, temp);
             }
@@ -583,9 +585,9 @@ namespace 破岩UI_ForHY
                 byte[] bufsav = new byte[4092];
                 Array.Copy(buf_LongFrame, 4, bufsav, 0, 4092);
 
-                SaveFile.Lock_2.EnterWriteLock();
-                SaveFile.DataQueue_SC2.Enqueue(bufsav);
-                SaveFile.Lock_2.ExitWriteLock();
+                //SaveFile.Lock_2.EnterWriteLock();
+                //SaveFile.DataQueue_SC2.Enqueue(bufsav);
+                //SaveFile.Lock_2.ExitWriteLock();
 
                 for (int i = 0; i < 6; i++)
                 {
@@ -652,6 +654,8 @@ namespace 破岩UI_ForHY
                         }
 
                     }
+                    else if (bufsav[i * 682 + 0] == 0x1D && bufsav[i * 682 + 1] == 0x0C)
+                    { }
                     else if (bufsav[i * 682 + 0] == 0x1D && bufsav[i * 682 + 1] == 0x0D)
                     {
                         int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
@@ -958,15 +962,37 @@ namespace 破岩UI_ForHY
         {
             if (RecvTag)
             {
-                USB.SendData(Data.OnlyId, StrToHexByte("1D01000a" + "04008103000000029A28" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+                //Register.Byte83H = (byte)(Register.Byte83H | 0x04);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
 
-                USB.SendData(Data.OnlyId, StrToHexByte("1D020004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+                //Register.Byte83H = (byte)(Register.Byte83H & 0x7b);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
 
-                USB.SendData(Data.OnlyId, StrToHexByte("1D020004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+                //USB.SendData(Data.OnlyId, StrToHexByte("1D02000a" + "04008103000000029A28" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
 
-                USB.SendData(Data.OnlyId, StrToHexByte("1D030004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+                //Register.Byte83H = (byte)(Register.Byte83H | 0x10);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //Register.Byte83H = (byte)(Register.Byte83H & 0x6f);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //USB.SendData(Data.OnlyId, StrToHexByte("1D040004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
 
-                USB.SendData(Data.OnlyId, StrToHexByte("1D030004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+                //Register.Byte83H = (byte)(Register.Byte83H | 0x10);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //Register.Byte83H = (byte)(Register.Byte83H & 0x6f);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //USB.SendData(Data.OnlyId, StrToHexByte("1D040004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+
+                //Register.Byte83H = (byte)(Register.Byte83H | 0x40);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //Register.Byte83H = (byte)(Register.Byte83H & 0x3f);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //USB.SendData(Data.OnlyId, StrToHexByte("1D060004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+
+                //Register.Byte83H = (byte)(Register.Byte83H | 0x40);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //Register.Byte83H = (byte)(Register.Byte83H & 0x3f);
+                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+                //USB.SendData(Data.OnlyId, StrToHexByte("1D060004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
 
                 this.aquaGauge1.Value = Data.SER1_speed_value;
 
