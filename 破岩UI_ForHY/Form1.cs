@@ -141,11 +141,9 @@ namespace 破岩UI_ForHY
             dataGridView1.DataSource = dt_AD;
             dataGridView1.AllowUserToAddRows = false;
 
-            SetDevice(false);            
+            SetDevice(false);
 
             Data.MyPane = zedGraphControl1.GraphPane;
-
-            Data.MyPane.Fill = new Fill(Color.Gray);
 
             Data.MyPane.Title.Text = "AD显示表";
 
@@ -317,7 +315,7 @@ namespace 破岩UI_ForHY
             if (lenth >= 0)
             {
                 string crc = Data.CRCCalc(Str_Content).Replace(" ", "").PadLeft(4, '0');
-                byte[] temp = StrToHexByte("1D000008" + Str_Content + crc + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
+                byte[] temp = StrToHexByte("1D00" + lenth.ToString("x4") + Str_Content + crc + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE");
 
                 USB.SendData(Data.OnlyId, temp);
             }
@@ -452,7 +450,7 @@ namespace 破岩UI_ForHY
 
                     new Thread(() => { RecvAllUSB(); }).Start();
                     new Thread(() => { DealWithADFun(); }).Start();
-
+                    new Thread(() => { DealWithSERFun(); }).Start();
                 }
                 else
                 {
@@ -597,9 +595,9 @@ namespace 破岩UI_ForHY
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
 
-                        SaveFile.Lock_3.EnterWriteLock();
-                        SaveFile.DataQueue_SC3.Enqueue(buf1D0x);
-                        SaveFile.Lock_3.ExitWriteLock();
+                        //SaveFile.Lock_3.EnterWriteLock();
+                        //SaveFile.DataQueue_SC3.Enqueue(buf1D0x);
+                        //SaveFile.Lock_3.ExitWriteLock();
 
                         //    string temp = null;
                         //    for (int j = 0; j < num; j++) temp += buf1D0x[j].ToString("x2");
@@ -612,9 +610,9 @@ namespace 破岩UI_ForHY
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
 
-                        SaveFile.Lock_4.EnterWriteLock();
-                        SaveFile.DataQueue_SC4.Enqueue(buf1D0x);
-                        SaveFile.Lock_4.ExitWriteLock();
+                        //SaveFile.Lock_4.EnterWriteLock();
+                        //SaveFile.DataQueue_SC4.Enqueue(buf1D0x);
+                        //SaveFile.Lock_4.ExitWriteLock();
 
                         lock (Data.SERList01)
                         {
@@ -628,9 +626,9 @@ namespace 破岩UI_ForHY
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
 
-                        SaveFile.Lock_5.EnterWriteLock();
-                        SaveFile.DataQueue_SC5.Enqueue(buf1D0x);
-                        SaveFile.Lock_5.ExitWriteLock();
+                        //SaveFile.Lock_5.EnterWriteLock();
+                        //SaveFile.DataQueue_SC5.Enqueue(buf1D0x);
+                        //SaveFile.Lock_5.ExitWriteLock();
 
                         lock (Data.SERList02)
                         {
@@ -644,9 +642,9 @@ namespace 破岩UI_ForHY
                         byte[] buf1D0x = new byte[num];
                         Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
 
-                        SaveFile.Lock_6.EnterWriteLock();
-                        SaveFile.DataQueue_SC6.Enqueue(buf1D0x);
-                        SaveFile.Lock_6.ExitWriteLock();
+                        //SaveFile.Lock_6.EnterWriteLock();
+                        //SaveFile.DataQueue_SC6.Enqueue(buf1D0x);
+                        //SaveFile.Lock_6.ExitWriteLock();
 
                         lock (Data.SERList03)
                         {
@@ -654,8 +652,31 @@ namespace 破岩UI_ForHY
                         }
 
                     }
-                    else if (bufsav[i * 682 + 0] == 0x1D && bufsav[i * 682 + 1] == 0x0C)
-                    { }
+                    else if (bufsav[i * 682 + 0] == 0x1D && bufsav[i * 682 + 1] == 0x0C)//报警参数
+                    {
+                        int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
+                        byte[] buf1D0x = new byte[num];
+                        Array.Copy(bufsav, i * 682 + 4, buf1D0x, 0, num);
+
+                        //SaveFile.Lock_6.EnterWriteLock();
+                        //SaveFile.DataQueue_SC6.Enqueue(buf1D0x);
+                        //SaveFile.Lock_6.ExitWriteLock();
+
+
+                        lock (Data.SERList04)
+                        {
+                            Data.SERList04.AddRange(buf1D0x);
+                        }
+
+
+                        //myMonitor.textBox_speed.BeginInvoke(new Action(() =>
+                        //{
+                        //    double speed = tempMB / tempTime;
+                        //    myMonitor.textBox_speed.Text = speed.ToString();
+                        //    myMonitor.progressBar1.Value = (int)speed;
+                        //}));
+
+                    }
                     else if (bufsav[i * 682 + 0] == 0x1D && bufsav[i * 682 + 1] == 0x0D)
                     {
                         int num = bufsav[i * 682 + 2] * 256 + bufsav[i * 682 + 3];//有效位
@@ -710,6 +731,7 @@ namespace 破岩UI_ForHY
                 bool Tag1 = false;
                 bool Tag2 = false;
                 bool Tag3 = false;
+                bool Tag4 = false;
 
                 lock (Data.SERList01)
                 {
@@ -794,7 +816,22 @@ namespace 破岩UI_ForHY
                     }
                 }
 
-                if (Tag1 == false && Tag2 == false && Tag3 == false)
+                lock(Data.SERList04)
+                {
+                    if (Data.SERList04.Count >= 100)
+                    {
+                        byte ret = Data.SERList04[0];
+
+                        Data.SERList04.RemoveRange(0, 100);
+                        Tag4 = true;
+                    }
+                    else
+                    {
+                        Tag4 = false;
+                    }
+                }
+
+                if (Tag1 == false && Tag2 == false && Tag3 == false && Tag4 == false)
                 {
                     Thread.Sleep(100);
                 }
@@ -961,38 +998,7 @@ namespace 破岩UI_ForHY
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (RecvTag)
-            {
-                //Register.Byte83H = (byte)(Register.Byte83H | 0x04);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-
-                //Register.Byte83H = (byte)(Register.Byte83H & 0x7b);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-
-                //USB.SendData(Data.OnlyId, StrToHexByte("1D02000a" + "04008103000000029A28" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
-
-                //Register.Byte83H = (byte)(Register.Byte83H | 0x10);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //Register.Byte83H = (byte)(Register.Byte83H & 0x6f);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //USB.SendData(Data.OnlyId, StrToHexByte("1D040004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
-
-                //Register.Byte83H = (byte)(Register.Byte83H | 0x10);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //Register.Byte83H = (byte)(Register.Byte83H & 0x6f);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //USB.SendData(Data.OnlyId, StrToHexByte("1D040004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
-
-                //Register.Byte83H = (byte)(Register.Byte83H | 0x40);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //Register.Byte83H = (byte)(Register.Byte83H & 0x3f);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //USB.SendData(Data.OnlyId, StrToHexByte("1D060004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
-
-                //Register.Byte83H = (byte)(Register.Byte83H | 0x40);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //Register.Byte83H = (byte)(Register.Byte83H & 0x3f);
-                //USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
-                //USB.SendData(Data.OnlyId, StrToHexByte("1D060004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+            {             
 
                 this.aquaGauge1.Value = Data.SER1_speed_value;
 
@@ -1082,6 +1088,57 @@ namespace 破岩UI_ForHY
                 myQueryForm = new 数据查询();
             }
             myQueryForm.ShowDialog();
+        }
+
+        private void 通道1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Register.Byte83H = (byte)(Register.Byte83H | 0x02);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & 0x7d);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            USB.SendData(Data.OnlyId, StrToHexByte("1D01000a" + "04008103000000029A28" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+        }
+
+        private void 通道2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Register.Byte83H = (byte)(Register.Byte83H | 0x04);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & 0x7b);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            USB.SendData(Data.OnlyId, StrToHexByte("1D020004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+
+
+            Register.Byte83H = (byte)(Register.Byte83H | 0x04);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & 0x7b);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            USB.SendData(Data.OnlyId, StrToHexByte("1D020004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+        }
+
+        private void 通道3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Register.Byte83H = (byte)(Register.Byte83H | 0x08);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & 0x77);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            USB.SendData(Data.OnlyId, StrToHexByte("1D030004" + "00304591" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
+
+            Register.Byte83H = (byte)(Register.Byte83H | 0x08);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            Register.Byte83H = (byte)(Register.Byte83H & 0x77);
+            USB.SendCMD(Data.OnlyId, 0x83, Register.Byte83H);
+
+            USB.SendData(Data.OnlyId, StrToHexByte("1D030004" + "00314431" + "C0DEC0DEC0DEC0DEC0DEC0DEC0DEC0DE"));
         }
     }
 }

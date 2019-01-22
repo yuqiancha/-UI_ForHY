@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
@@ -90,6 +90,16 @@
             this.aquaGauge2 = new AquaControls.AquaGauge();
             this.aquaGauge1 = new AquaControls.AquaGauge();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.通道使能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.通道1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.通道2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.通道3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -115,6 +125,9 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -138,12 +151,12 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1093, 535);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1224, 535);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // zedGraphControl1
             // 
-            this.zedGraphControl1.BackColor = System.Drawing.Color.Black;
+            this.zedGraphControl1.BackColor = System.Drawing.Color.Silver;
             this.zedGraphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zedGraphControl1.IsAutoScrollRange = true;
             this.zedGraphControl1.IsShowPointValues = true;
@@ -156,7 +169,7 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(680, 529);
+            this.zedGraphControl1.Size = new System.Drawing.Size(811, 529);
             this.zedGraphControl1.TabIndex = 105;
             // 
             // dataGridView1
@@ -173,28 +186,28 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 15F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 15F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 15F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 15F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.Size = new System.Drawing.Size(401, 529);
             this.dataGridView1.TabIndex = 0;
@@ -216,9 +229,9 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "测量值";
-            dataGridViewCellStyle1.Format = "N3";
-            dataGridViewCellStyle1.NullValue = "0.000";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Format = "N3";
+            dataGridViewCellStyle13.NullValue = "0.000";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column3.HeaderText = "测量值";
             this.Column3.Name = "Column3";
             this.Column3.Width = 70;
@@ -243,10 +256,11 @@
             this.开始ToolStripMenuItem,
             this.数据查询ToolStripMenuItem,
             this.实时速率ToolStripMenuItem,
-            this.图表显示ToolStripMenuItem});
+            this.图表显示ToolStripMenuItem,
+            this.通道使能ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1334, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1465, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -299,7 +313,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // splitContainer1
@@ -313,13 +327,19 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox9);
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox8);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox7);
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox5);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox3);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox6);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox4);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label33);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.label31);
             this.splitContainer1.Panel1.Controls.Add(this.label29);
             this.splitContainer1.Panel1.Controls.Add(this.label32);
@@ -334,7 +354,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1334, 675);
+            this.splitContainer1.Size = new System.Drawing.Size(1465, 675);
             this.splitContainer1.SplitterDistance = 136;
             this.splitContainer1.TabIndex = 4;
             // 
@@ -807,15 +827,109 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(1334, 535);
-            this.splitContainer2.SplitterDistance = 1093;
+            this.splitContainer2.Size = new System.Drawing.Size(1465, 535);
+            this.splitContainer2.SplitterDistance = 1224;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // 通道使能ToolStripMenuItem
+            // 
+            this.通道使能ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.通道1ToolStripMenuItem,
+            this.通道2ToolStripMenuItem,
+            this.通道3ToolStripMenuItem});
+            this.通道使能ToolStripMenuItem.Name = "通道使能ToolStripMenuItem";
+            this.通道使能ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.通道使能ToolStripMenuItem.Text = "通道使能";
+            // 
+            // 通道1ToolStripMenuItem
+            // 
+            this.通道1ToolStripMenuItem.Name = "通道1ToolStripMenuItem";
+            this.通道1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.通道1ToolStripMenuItem.Text = "通道1";
+            this.通道1ToolStripMenuItem.Click += new System.EventHandler(this.通道1ToolStripMenuItem_Click);
+            // 
+            // 通道2ToolStripMenuItem
+            // 
+            this.通道2ToolStripMenuItem.Name = "通道2ToolStripMenuItem";
+            this.通道2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.通道2ToolStripMenuItem.Text = "通道2";
+            this.通道2ToolStripMenuItem.Click += new System.EventHandler(this.通道2ToolStripMenuItem_Click);
+            // 
+            // 通道3ToolStripMenuItem
+            // 
+            this.通道3ToolStripMenuItem.Name = "通道3ToolStripMenuItem";
+            this.通道3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.通道3ToolStripMenuItem.Text = "通道3";
+            this.通道3ToolStripMenuItem.Click += new System.EventHandler(this.通道3ToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(1328, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 15);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "接近开关1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(1328, 75);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 15);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "接近开关2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(1328, 109);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 15);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "接近开关3";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox1.Location = new System.Drawing.Point(1410, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox8.Location = new System.Drawing.Point(1410, 63);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(33, 27);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 25;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::破岩UI_ForHY.Properties.Resources.red;
+            this.pictureBox9.Location = new System.Drawing.Point(1410, 96);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(33, 27);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 24;
+            this.pictureBox9.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1334, 700);
+            this.ClientSize = new System.Drawing.Size(1465, 700);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -854,6 +968,9 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -917,6 +1034,16 @@
         private System.Windows.Forms.ToolStripMenuItem 图表显示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 显示最近60sToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 全部显示ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 通道使能ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 通道1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 通道2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 通道3ToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

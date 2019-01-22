@@ -14,6 +14,7 @@ namespace 破岩UI_ForHY
     {
 
         Button[] myBtnGp;
+        TextBox[] myTxtGp;
 
         public GraphPane MyPane;
         public GraphPane MyPane2;
@@ -23,6 +24,9 @@ namespace 破岩UI_ForHY
 
             myBtnGp = new Button[16] { button1, button2, button3, button4, button5, button6, button7, button8
             , button9, button10, button11, button12, button13, button14, button15, button16};
+
+            myTxtGp = new TextBox[16] {textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8
+            , textBox9, textBox10, textBox11, textBox12, textBox13, textBox14, textBox15, textBox16};
 
             for(int i=0;i<16;i++)
             {
@@ -68,6 +72,8 @@ namespace 破岩UI_ForHY
                 openFileDialog1.InitialDirectory = Program.GetStartupPath();
                 try
                 {
+                    myTxtGp[t - 1].Text = openFileDialog1.FileName;
+
                     byte[] bufret = System.IO.File.ReadAllBytes(openFileDialog1.FileName);
                     int num = bufret.Count();
                     double yMax = 0;

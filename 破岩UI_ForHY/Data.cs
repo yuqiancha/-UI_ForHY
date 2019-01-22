@@ -39,6 +39,7 @@ namespace 破岩UI_ForHY
         public static List<byte> SERList01 = new List<byte>();
         public static List<byte> SERList02 = new List<byte>();
         public static List<byte> SERList03 = new List<byte>();
+        public static List<byte> SERList04 = new List<byte>();
 
         public static float SER1_speed_value = 0;
         public static float SER1_niuju_value = 0;
